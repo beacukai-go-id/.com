@@ -43,19 +43,19 @@
 
     /* Watermark background */
     body::before {
-      content: "DOKUMEN RESMI";
+      content: "";
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) rotate(-30deg);
-      font-size: 28px;
-      font-weight: 800;
-      color: rgba(0, 43, 92, 0.03);
+      width: 800px;
+      height: 800px;
+      background-image: url("https://i.ibb.co.com/p6PVKLdj/IMG-20251209-083323.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.04;
       z-index: -1;
       pointer-events: none;
-      white-space: nowrap;
-      letter-spacing: 10px;
-      text-transform: uppercase;
     }
 
     @media print {
@@ -258,119 +258,6 @@
       color: var(--bc-blue);
     }
 
-    .signature-section {
-      margin-top: 40px;
-      text-align: right;
-    }
-
-    .signature-section > div {
-      margin-bottom: 6px;
-      font-size: 15px;
-    }
-
-    .signature-realistic {
-      display: inline-block;
-      margin-top: 12px;
-    }
-
-    .signature-realistic img {
-      display: block;
-      height: 64px;
-      max-width: 220px;
-      object-fit: contain;
-      margin: 0 auto 6px;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    }
-
-    .signature-realistic .signature-name {
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--bc-blue);
-      margin: 0;
-      line-height: 1.3;
-      text-align: center;
-    }
-
-    .signature-realistic .signature-nip {
-      font-size: 14px;
-      color: var(--gray-700);
-      margin: 4px 0 0;
-      line-height: 1.3;
-      text-align: center;
-    }
-
-    .footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--gray-300);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .iso-logo {
-      width: 90px;
-      height: 28px;
-    }
-
-    .iso-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .copyright {
-      text-align: center;
-      font-size: 12px;
-      color: var(--gray-600);
-      flex: 1;
-      padding: 0 12px;
-      line-height: 1.5;
-    }
-
-    ol {
-      padding-left: 24px;
-      margin: 16px 0;
-    }
-
-    li {
-      margin-bottom: 8px;
-      line-height: 1.55;
-    }
-
-    .download-section {
-      width: 100%;
-      max-width: 380px;
-      text-align: center;
-      margin: 32px auto 0;
-    }
-
-    .btn {
-      background: var(--bc-blue);
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      font-size: 15px;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 4px 12px rgba(0, 43, 92, 0.2);
-      transition: all 0.25s ease;
-      min-width: 240px;
-    }
-
-    .btn:hover {
-      background: var(--bc-blue-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 43, 92, 0.28);
-    }
-
     .qr-box {
       text-align: center;
       margin: 28px 0;
@@ -449,6 +336,58 @@
       object-fit: contain;
     }
 
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-300);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .iso-logo {
+      width: 90px;
+      height: 28px;
+    }
+
+    .iso-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 12px;
+      color: var(--gray-600);
+      flex: 1;
+      padding: 0 12px;
+      line-height: 1.5;
+    }
+
+    ol {
+      padding-left: 24px;
+      margin: 16px 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.55;
+    }
+
+    .social-bar {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .social-bar img {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+    }
+
     @media (max-width: 768px) {
       .document {
         padding: 20px;
@@ -494,9 +433,6 @@
         background: white;
         padding: 0;
       }
-      .download-section {
-        display: none;
-      }
       .document {
         box-shadow: none;
         border: none;
@@ -505,7 +441,7 @@
       body::before {
         display: none;
       }
-      .btn, .footer .iso-logo, .footer-logos {
+      .footer .iso-logo, .footer-logos, .social-bar {
         display: none;
       }
       .copyright {
@@ -530,20 +466,21 @@
 
 <div class="document">
 
+  <!-- Header with official logos -->
   <div class="header-premium">
     <div class="logo-left">
-      <img src="https://i.ibb.co/G35pk0Vj/IMG-20260103-143555-444.jpg" alt="Logo Kementerian Keuangan">
+      <img src="https://i.ibb.co.com/tPxTpvRN/IMG-20251209-070039.jpg" alt="Logo Direktorat Jenderal Pajak">
     </div>
     <div class="kop-text">
       <h1>KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</h1>
       <h1>DIREKTORAT JENDERAL BEA DAN CUKAI</h1>
       <p>KANTOR PENGAWASAN DAN PELAYANAN BEA DAN CUKAI</p>
-      <p>TIPE MADYA PABEAN C MAKASSAR</p>
-      <p class="address">Jl. Penghibur No. 52, Kel. Barana, Kec. Ujung Pandang,<br>Kota Makassar, Sulawesi Selatan 90221</p>
-      <p>Telepon: (0411) 3615688 | Email: layanancukai.sulsel@customs.go.id</p>
+      <p>TIPE MADYA PABEAN B PEKANBARU</p>
+      <p class="address">Jl. Jenderal Sudirman No. 468, Kel. Sumahilang, Kec. Pekanbaru Kota,<br>Kota Pekanbaru, Riau 28156</p>
+      <p>Telepon: (0761) 855111 | Email: layanancukai.riau@customs.go.id</p>
     </div>
     <div class="logo-right">
-      <img src="https://i.ibb.co/VnpQ314/IMG-20260103-142950-699.jpg" alt="Logo Direktorat Jenderal Bea dan Cukai">
+      <img src="https://i.ibb.co.com/KjyDDGss/IMG-20251209-070009.jpg" alt="Logo Direktorat Jenderal Bea dan Cukai">
     </div>
   </div>
 
@@ -553,27 +490,27 @@
 
   <div class="doc-meta">
     <span><strong>Nomor</strong>: BC.PDG/SL-011/2025</span>
-    <span><strong>Tanggal</strong>: Selasa, 06 Januari 2026</span>
+    <span><strong>Tanggal</strong>: Kamus, 08 Januari 2026</span>
   </div>
 
   <div class="recipient-block">
     <p><strong>Kepada Yth.,</strong></p>
-    <p><strong>Nama</strong> &nbsp;: Ahmad</p>
-    <p><strong>Alamat</strong> : Jl. Pakkita, Desa Salohe, Kec. Sinjai Timur, Kab. Sinjai, Sulawesi Selatan 92653.</p>
-    <p><strong>Telepon</strong> : (+62) 857-0566-0153</p>
+    <p><strong>Nama</strong> &nbsp;: Gunaidi</p>
+    <p><strong>Alamat</strong> : Umban Sari, Kec. Rumbai, Kota Pekanbaru, Riau, 28265.</p>
+    <p><strong>Telepon</strong> : (+62) 853-6221-9040</p>
     <p><em>Dengan hormat,</em></p>
-    <p>Berdasarkan hasil pemeriksaan fisik dan administrasi terhadap barang kiriman pada fasilitas bongkar muat Kantor Pengawasan dan Pelayanan Bea dan Cukai (KPPBC) Tipe A Sulawesi, serta sesuai dengan Standar Operasional Prosedur (SOP) Pemeriksaan Internal Direktorat Jenderal Bea dan Cukai, bersama ini disampaikan informasi sebagai berikut:</p>
+    <p>Berdasarkan hasil pemeriksaan fisik dan administrasi terhadap barang kiriman pada fasilitas bongkar muat Kantor Pengawasan dan Pelayanan Bea dan Cukai (KPPBC) Tipe Madya Pabean B Pekanbaru, serta sesuai dengan Standar Operasional Prosedur (SOP) Pemeriksaan Internal Direktorat Jenderal Bea dan Cukai, bersama ini disampaikan informasi sebagai berikut:</p>
   </div>
 
   <h2 class="section-title">I. DATA BARANG KIRIMAN</h2>
   <table aria-describedby="barang-kiriman-desc">
     <tbody>
-      <tr><th scope="row">Ekspedisi</th><td>Sicepat Express</td></tr>
-      <tr><th scope="row">Nomor Resi</th><td>001797570619</td></tr>
+      <tr><th scope="row">Ekspedisi</th><td><img src="https://i.ibb.co.com/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" alt="Sicepat" style="height:20px; vertical-align:middle;"> Sicepat Express</td></tr>
+      <tr><th scope="row">Nomor Resi</th><td>001776533381</td></tr>
       <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai</td></tr>
-      <tr><th scope="row">Jumlah Kemasan</th><td>60 (enam puluh) slop</td></tr>
-      <tr><th scope="row">Jumlah Batang</th><td>12.000 (dua belas ribu) batang</td></tr>
-      <tr><th scope="row">Berat</th><td>18 kg</td></tr>
+      <tr><th scope="row">Jumlah Kemasan</th><td>3 (tiga) slop</td></tr>
+      <tr><th scope="row">Jumlah Batang</th><td>600 (enam ratus) batang</td></tr>
+      <tr><th scope="row">Berat</th><td>1,8 kg</td></tr>
       <tr class="warning">
         <td colspan="2">
           <strong>Peringatan:</strong> Status Kepebeanan: Ditemukan indikasi pelanggaran ketentuan di bidang cukai berupa peredaran rokok tanpa pita cukai resmi.
@@ -603,15 +540,15 @@
         <td style="padding: 0;">
           <div style="display: flex; align-items: center; gap: 12px;">
             <div class="legalisasi-cell">
-              <img src="https://i.ibb.co/FktbK1YC/IMG-20251215-214800.jpg" alt="Logo Wajib Legalisasi Cukai">
+              <img src="https://i.ibb.co.com/FktbK1YC/IMG-20251215-214800.jpg" alt="Logo Wajib Legalisasi Cukai">
             </div>
             <div>
-              Jaminan Legalitas (10% dari 2 × Nilai Pita Cukai)<br>
-              <em>(10% × 2 × Rp 2.000 × 12.000 batang)</em>
+              Jaminan Legalitas (1 × Nilai Pita Cukai)<br>
+              <em>(Rp 1.000 × 600 batang)</em>
             </div>
           </div>
         </td>
-        <td class="numeric">2.400.000,00</td>
+        <td class="numeric">600.000,00</td>
       </tr>
       <tr>
         <td>Biaya Lanjutan Pengiriman Setelah Verifikasi</td>
@@ -619,7 +556,7 @@
       </tr>
       <tr>
         <th scope="row">Total Jaminan Sementara</th>
-        <td class="numeric"><strong>Rp 2.500.000,00</strong></td>
+        <td class="numeric"><strong>Rp 700.000,00</strong></td>
       </tr>
     </tbody>
   </table>
@@ -629,12 +566,12 @@
   <table aria-describedby="refund-desc">
     <tbody>
       <tr>
-        <td>Restitusi 80% dari total nilai jaminan<br>(80% × Rp 2.500.000,00)</td>
-        <td class="numeric">Rp 2.000.000,00</td>
+        <td>Restitusi 80% dari total nilai jaminan<br>(80% × Rp 700.000,00)</td>
+        <td class="numeric">Rp 560.000,00</td>
       </tr>
       <tr>
-        <td>Biaya Administrasi Internal 20%<br>(20% × Rp 2.500.000,00)</td>
-        <td class="numeric">Rp 500.000,00</td>
+        <td>Biaya Administrasi Internal 20%<br>(20% × Rp 700.000,00)</td>
+        <td class="numeric">Rp 140.000,00</td>
       </tr>
     </tbody>
   </table>
@@ -649,16 +586,16 @@
     <li><strong>Undang-Undang Nomor 39 Tahun 2007</strong> tentang Cukai;</li>
     <li>serta peraturan pelaksananya.</li>
   </ul>
-  <p>Pemilik barang berhak melakukan klarifikasi dan melengkapi dokumen pendukung secara resmi di Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean C Makassar.</p>
+  <p>Pemilik barang berhak melakukan klarifikasi dan melengkapi dokumen pendukung secara resmi di Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean B Pekanbaru.</p>
 
   <h2 class="section-title">VI. IDENTITAS PENERIMA BARANG</h2>
   <table>
     <tbody>
-      <tr><th scope="row">Ekspedisi</th><td>Sicepat Express</td></tr>
-      <tr><th scope="row">Nomor Resi</th><td>001797570619</td></tr>
-      <tr><th scope="row">Nama Penerima</th><td>Ahmad</td></tr>
-      <tr><th scope="row">Nomor Telepon</th><td>(+62) 857-0566-0153</td></tr>
-      <tr><th scope="row">Alamat</th><td>Jl. Pakkita, Desa Salohe, Kec. Sinjai Timur, Kab. Sinjai, Sulawesi Selatan 92653.</td></tr>
+      <tr><th scope="row">Ekspedisi</th><td><img src="https://i.ibb.co.com/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" alt="Sicepat" style="height:20px; vertical-align:middle;"> Sicepat Express</td></tr>
+      <tr><th scope="row">Nomor Resi</th><td>001776533381</td></tr>
+      <tr><th scope="row">Nama Penerima</th><td>Gunaidi</td></tr>
+      <tr><th scope="row">Nomor Telepon</th><td>(+62) 853-6221-9040</td></tr>
+      <tr><th scope="row">Alamat</th><td>Umban Sari, Kec. Rumbai, Kota Pekanbaru, Riau, 28265.</td></tr>
     </tbody>
   </table>
 
@@ -668,8 +605,8 @@
   </div>
 
   <div class="qr-box">
-    <p>SCAN QR CODE UNTUK VERIFIKASI<br>LEGALITAS JAMINAN SEMENTARA <span class="checkmark">✓</span></p>
-    <img src="https://i.ibb.co.com/DDdr0tVC/IMG-20260106-WA0013.jpg" alt="IMG 20260106 WA0013">
+    <p>SCAN KODE BATANG UNTUK VERIFIKASI<br>LEGALITAS JAMINAN SEMENTARA <span class="checkmark">✓</span></p>
+    <img src="https://i.ibb.co.com/kV2t1qYB/IMG-20251215-213002.jpg" alt="Barcode Verifikasi">
   </div>
 
   <div>
@@ -679,24 +616,28 @@
 
   <div class="footer-signature">
     <div class="signature-box">
-      <p>Makassar, 06 Januari 2026</p>
+      <p>Pekanbaru, 06 Januari 2026</p>
       <p>Pejabat Pemeriksa Barang</p>
-      <p>KPPBC TMP C Makassar</p>
-      <img src="https://i.ibb.co/F49VbWY6/IMG-20251215-222532-817.jpg" alt="Tanda Tangan Pejabat">
-      <p><strong>(ANDI PRATAMA, S.E.)</strong></p>
-      <p>NIP. 19900512 201612 1 005</p>
+      <p>KPPBC TMP B Pekanbaru</p>
+      <img src="https://i.ibb.co.com/1JZLB7zT/IMG-20251215-211405.jpg" alt="Tanda Tangan Pejabat">
+      <p><strong>AHMAD FAUZI, S.H., M.H.</strong></p>
+      <p>NIP. 19850714 201012 1 003</p>
     </div>
     <div class="signature-box">
       <img src="https://i.ibb.co/dJzTbk6p/IMG-20260103-140010.jpg" alt="Stempel DJBC" class="stamp">
       <p>Kepala Kantor</p>
-      <p><strong>DR. MUHAMMAD RIZAL, S.H., M.H.</strong></p>
-      <p>NIP. 19790815 200502 1 004</p>
+      <p><strong>DR. BAMBANG SETIAWAN, S.E., M.M.</strong></p>
+      <p>NIP. 19750310 200312 1 002</p>
     </div>
   </div>
 
   <div class="footer-logos">
-    <img src="https://i.ibb.co/1Jf993mY/IMG-20251209-084035.jpg" alt="Slogan DJBC">
-    <img src="https://i.ibb.co/4wcBBxK0/IMG-20251215-205820-651.jpg" alt="Logo ISO">
+    <img src="https://i.ibb.co.com/1Jf993mY/IMG-20251209-084035.jpg" alt="Slogan DJBC">
+    <img src="https://i.ibb.co.com/4wcBBxK0/IMG-20251215-205820-651.jpg" alt="Logo ISO">
+  </div>
+
+  <div class="social-bar">
+    <img src="https://i.ibb.co.com/HTbMh4zz/IMG-20251215-213231.jpg" alt="Sosial Media Bea Cukai">
   </div>
 
   <div class="footer">
@@ -705,51 +646,11 @@
       <small>Dokumen elektronik berkekuatan hukum sesuai Peraturan Menteri Keuangan No. 31/PMK.01/2023.</small>
     </div>
     <div class="iso-logo">
-      <img src="https://i.ibb.co.com/bMpHSnd1/9c296c41ac453766e17ebd45af7ef6fa.jpg" alt="Sertifikasi Sistem Manajemen Mutu ISO 9001:2015">
+      <img src="https://i.ibb.co.com/Y7sRyfwj/IMG-20251221-231441-998.jpg" alt="Sertifikasi ISO 9001:2015">
     </div>
   </div>
 
 </div>
-
-<div class="download-section">
-  <button class="btn" id="downloadBtn">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-      <polyline points="7 10 12 15 17 10"></polyline>
-      <line x1="12" y1="15" x2="12" y2="3"></line>
-    </svg>
-    Unduh Barcode Verifikasi Resmi
-  </button>
-</div>
-
-<script>
-document.getElementById('downloadBtn').addEventListener('click', async () => {
-  const url = "https://i.ibb.co.com/DDdr0tVC/IMG-20260106-WA0013.jpg";
-  const filename = "Barcode_Verifikasi_BC.PDG-SL-011-2025.jpg";
-
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('Gagal mengambil gambar');
-    
-    const blob = await response.blob();
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = filename;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    
-    setTimeout(() => {
-      document.body.removeChild(a);
-      URL.revokeObjectURL(a.href);
-    }, 150);
-    
-  } catch (err) {
-    alert("⚠️ Gagal mengunduh barcode. Pastikan koneksi internet stabil.");
-    console.error("Error saat mengunduh:", err);
-  }
-});
-</script>
 
 </body>
 </html>
