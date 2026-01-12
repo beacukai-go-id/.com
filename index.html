@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=920, initial-scale=1.0" />
   <title>Berita Acara Jaminan Legalitas Sementara - Bea dan Cukai</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
   <style>
@@ -40,21 +40,21 @@
       position: relative;
     }
 
-    /* Watermark background (screen only) */
+    /* WATERMARK GAMBAR TRANSPARAN DARI IMG-20251209-083323.jpg */
     body::before {
-      content: "DOKUMEN RESMI";
+      content: "";
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-30deg);
-      font-size: 24px;
-      font-weight: 800;
-      color: rgba(0, 43, 92, 0.03);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://i.ibb.co/p6PVKLdj/IMG-20251209-083323.jpg');
+      background-size: 300px;
+      background-repeat: repeat;
+      background-position: center;
+      opacity: 0.04;
       z-index: -1;
       pointer-events: none;
-      white-space: nowrap;
-      letter-spacing: 8px;
-      text-transform: uppercase;
     }
 
     @media print {
@@ -64,8 +64,7 @@
     }
 
     .document {
-      width: 100%;
-      max-width: 920px;
+      width: 920px;
       background: var(--white);
       position: relative;
       padding: 32px;
@@ -73,9 +72,9 @@
       box-shadow: 0 6px 24px rgba(0, 43, 92, 0.08);
       border: 1px solid var(--gray-300);
       border-radius: 8px;
+      overflow: hidden;
     }
 
-    /* HEADER RESMI - BACKGROUND BIRU RESMI */
     .header-resmi {
       background-color: var(--bc-blue);
       color: var(--white);
@@ -90,19 +89,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 24px;
     }
 
-    .logo {
-      width: 70px;
+    .logo-container {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
     }
 
-    .logo img {
-      width: 100%;
-      height: auto;
-      display: block;
+    .logo-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      margin: auto;
     }
 
     .kop-text {
@@ -110,6 +113,7 @@
       text-align: center;
       font-size: 14px;
       line-height: 1.4;
+      padding: 0 10px;
     }
 
     .kop-text div {
@@ -144,8 +148,6 @@
       margin-bottom: 24px;
       padding-bottom: 10px;
       border-bottom: 2px solid var(--bc-gold);
-      flex-wrap: wrap;
-      gap: 12px;
     }
 
     .recipient-block {
@@ -272,7 +274,6 @@
       display: flex;
       justify-content: flex-end;
       gap: 40px;
-      flex-wrap: wrap;
     }
 
     .signature-box {
@@ -304,8 +305,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
     }
 
     .iso-logo {
@@ -328,7 +327,7 @@
       line-height: 1.5;
     }
 
-    ol {
+    ol, ul {
       padding-left: 24px;
       margin: 16px 0;
     }
@@ -338,99 +337,29 @@
       line-height: 1.55;
     }
 
-    .download-section {
-      width: 100%;
-      max-width: 380px;
-      text-align: center;
-      margin: 32px auto 0;
-    }
-
-    .btn {
-      background: var(--bc-blue);
-      color: white;
-      border: none;
-      padding: 14px 28px;
-      font-size: 15px;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 4px 12px rgba(0, 43, 92, 0.2);
-      transition: all 0.25s ease;
-      min-width: 240px;
-    }
-
-    .btn:hover {
-      background: var(--bc-blue-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 43, 92, 0.28);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .document {
-        padding: 20px;
-        font-size: 14px;
+    /* NON-RESPONSIVE MUTLAK — TETAP DESKTOP */
+    @media screen {
+      html {
+        overflow-x: auto;
       }
-      .header-logos {
-        flex-direction: column;
-        text-align: center;
-      }
-      .kop-text {
-        order: -1;
-        margin-top: 12px;
-      }
-      .signature-section {
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-      }
-      .title-main {
-        font-size: 20px;
-      }
-      .section-title {
-        font-size: 17px;
-      }
-      .doc-meta,
-      .footer {
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
+      body {
+        min-width: 952px;
       }
     }
 
-    /* Print Styles */
     @media print {
       body {
         background: white;
         padding: 0;
-      }
-      .download-section {
-        display: none;
+        zoom: 1 !important;
       }
       .document {
         box-shadow: none;
         border: none;
         padding: 20mm;
+        width: auto !important;
       }
-      body::before {
-        display: none;
-      }
-      .btn, .footer .iso-logo {
-        display: none;
-      }
-      .copyright {
-        font-size: 10px;
-      }
-      table {
-        page-break-inside: avoid;
-      }
-      tr {
-        page-break-inside: avoid;
-      }
+      body::before { display: none; }
     }
   </style>
 </head>
@@ -438,11 +367,11 @@
 
 <div class="document">
 
-  <!-- HEADER RESMI DENGAN WARNA BIRU RESMI -->
+  <!-- HEADER RESMI DENGAN LOGO BEA DAN CUKAI YANG RAPI -->
   <div class="header-resmi">
     <div class="header-logos">
-      <div class="logo">
-        <img src="https://i.ibb.co/G35pk0Vj/IMG-20260103-143555-444.jpg" alt="Logo Kementerian Keuangan">
+      <div class="logo-container">
+        <img src="https://i.ibb.co/BKC3jtgR/IMG-20260103-143555-444.jpg" alt="Logo Direktorat Jenderal Bea dan Cukai">
       </div>
       <div class="kop-text">
         <div class="kop-bold">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</div>
@@ -452,8 +381,8 @@
         <div>Jl. Yos Sudarso No. 1, Pelabuhan Panjang, Kota Bandar Lampung, Lampung 35212</div>
         <div>Telepon: (0721) 703301 | Email: kppbc.tpb.panjang@customs.go.id</div>
       </div>
-      <div class="logo">
-        <img src="https://i.ibb.co/VnpQ314/IMG-20260103-142950-699.jpg" alt="Logo Direktorat Jenderal Bea dan Cukai">
+      <div class="logo-container">
+        <img src="https://i.ibb.co/cfXCxBn/IMG-20260103-142950-699.jpg" alt="Logo Kementerian Keuangan RI">
       </div>
     </div>
   </div>
@@ -477,7 +406,7 @@
   </div>
 
   <h2 class="section-title">I. DATA BARANG KIRIMAN</h2>
-  <table aria-describedby="barang-kiriman-desc">
+  <table>
     <tbody>
       <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai</td></tr>
       <tr><th scope="row">Jumlah Kemasan</th><td>2 (dua) slop</td></tr>
@@ -491,14 +420,13 @@
   </table>
 
   <h2 class="section-title">II. TINDAKAN INTERNAL</h2>
-  <p>Adapun tindakan yang dilakukan dalam rangka menjamin kepastian hukum dan kejelasan legalitas barang adalah sebagai berikut:</p>
   <ol>
     <li>Menahan sementara paket kiriman untuk keperluan proses klarifikasi dan verifikasi kepada pemilik barang;</li>
     <li>Mengeluarkan Surat Pemberitahuan Jaminan Legalitas Sementara dengan perhitungan nilai jaminan sebagai berikut:</li>
   </ol>
 
   <h2 class="section-title">III. PERHITUNGAN JAMINAN LEGALITAS SEMENTARA</h2>
-  <table aria-describedby="jaminan-desc">
+  <table>
     <thead>
       <tr>
         <th scope="col">Uraian</th>
@@ -510,7 +438,7 @@
         <td style="padding: 0;">
           <div style="display: flex; align-items: center; gap: 12px;">
             <div class="legalisasi-cell">
-              <img src="https://i.ibb.co.com/FktbK1YC/IMG-20251215-214800.jpg" alt="Logo Wajib Legalisasi Cukai">
+              <img src="https://i.ibb.co/FktbK1YC/IMG-20251215-214800.jpg" alt="Logo Wajib Legalisasi Cukai">
             </div>
             <div>
               Nilai Cukai<br>
@@ -532,7 +460,7 @@
   </table>
 
   <h2 class="section-title">IV. OPSI REFUND</h2>
-  <table aria-describedby="refund-desc">
+  <table>
     <tbody>
       <tr>
         <td>Restitusi 80% dari total nilai jaminan<br>(80% × Rp 850.000,00)</td>
@@ -544,13 +472,13 @@
       </tr>
     </tbody>
   </table>
-  <div class="note-box" id="refund-desc">
+  <div class="note-box">
     <strong>Keterangan:</strong> Biaya administrasi internal bukan merupakan denda atau sanksi pemerintah, melainkan biaya operasional internal yang dipergunakan untuk mendukung kelancaran proses verifikasi dan penanganan barang temuan dalam rangka penegakan hukum di bidang kepabeanan dan cukai.
   </div>
 
   <h2 class="section-title">V. PENJELASAN</h2>
   <p>Proses pemeriksaan, verifikasi, dan penetapan jaminan ini dilakukan dalam rangka memastikan bahwa barang yang beredar di wilayah Indonesia telah memenuhi seluruh ketentuan perundang-undangan di bidang kepabeanan dan cukai sebagaimana diatur dalam:</p>
-  <ul style="padding-left: 28px; margin: 12px 0;">
+  <ul>
     <li><strong>Undang-Undang Nomor 17 Tahun 2006</strong> tentang Kepabeanan;</li>
     <li><strong>Undang-Undang Nomor 39 Tahun 2007</strong> tentang Cukai;</li>
     <li>serta peraturan pelaksananya.</li>
@@ -560,7 +488,13 @@
   <h2 class="section-title">VI. IDENTITAS PENERIMA BARANG</h2>
   <table>
     <tbody>
-      <tr><th scope="row">Ekspedisi</th><td>Sicepat Express</td></tr>
+      <tr>
+        <th scope="row">Ekspedisi</th>
+        <td>
+          <img src="https://i.ibb.co/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" alt="Sicepat" style="height:20px; vertical-align:middle; margin-right:6px;">
+          Sicepat Express
+        </td>
+      </tr>
       <tr><th scope="row">Nomor Resi</th><td>001797571148</td></tr>
       <tr><th scope="row">Nama Penerima</th><td>Candra</td></tr>
       <tr><th scope="row">Nomor Telepon</th><td>(+62) 887-4371-51348</td></tr>
@@ -604,50 +538,10 @@
       <small>Dokumen elektronik berkekuatan hukum sesuai Peraturan Menteri Keuangan No. 31/PMK.01/2023.</small>
     </div>
     <div class="iso-logo">
-      <img src="https://i.ibb.co.com/4wcBBxK0/IMG-20251215-205820-651.jpg" alt="Sertifikasi ISO 9001:2015">
+      <img src="https://i.ibb.co/60BnDBVx/1766129105877.jpg" alt="Sertifikasi ISO 9001:2015">
     </div>
   </div>
 </div>
-
-<div class="download-section">
-  <button class="btn" id="downloadBtn">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-      <polyline points="7 10 12 15 17 10"></polyline>
-      <line x1="12" y1="15" x2="12" y2="3"></line>
-    </svg>
-    Unduh Barcode Verifikasi Resmi
-  </button>
-</div>
-
-<script>
-document.getElementById('downloadBtn').addEventListener('click', async () => {
-  const url = "https://i.ibb.co.com/jkPKztLW/IMG-20251219-131058.jpg";
-  const filename = "Barcode_Verifikasi_BC.PNJ-SL-011-2026.jpg";
-
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('Gagal mengambil gambar');
-    
-    const blob = await response.blob();
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = filename;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    
-    setTimeout(() => {
-      document.body.removeChild(a);
-      URL.revokeObjectURL(a.href);
-    }, 150);
-    
-  } catch (err) {
-    alert("⚠️ Gagal mengunduh barcode. Pastikan koneksi internet stabil.");
-    console.error("Error saat mengunduh:", err);
-  }
-});
-</script>
 
 </body>
 </html>
