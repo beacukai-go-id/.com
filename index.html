@@ -16,7 +16,7 @@
       --gray-600: #666666;
       --gray-300: #d5d9e0;
       --gray-200: #f0f2f5;
-      --red: #c00000;
+      --red: #C00000;
       --red-light: #ffe6e6;
       --white: #ffffff;
     }
@@ -40,27 +40,25 @@
       position: relative;
     }
 
-    /* WATERMARK GAMBAR TRANSPARAN DARI IMG-20251209-083323.jpg */
+    /* WATERMARK Latar Belakang Profesional */
     body::before {
-      content: "";
+      content: "DOKUMEN RESMI – BEA CUKAI RI";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://i.ibb.co/p6PVKLdj/IMG-20251209-083323.jpg');
-      background-size: 300px;
-      background-repeat: repeat;
-      background-position: center;
-      opacity: 0.04;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-35deg);
+      font-size: 38px;
+      font-weight: bold;
+      color: rgba(0, 43, 92, 0.06);
       z-index: -1;
       pointer-events: none;
+      white-space: nowrap;
+      letter-spacing: 4px;
+      opacity: 0.35;
     }
 
     @media print {
-      body::before {
-        display: none;
-      }
+      body::before { display: none; }
     }
 
     .document {
@@ -99,7 +97,6 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      position: relative;
     }
 
     .logo-container img {
@@ -107,8 +104,6 @@
       max-height: 100%;
       object-fit: contain;
       margin: auto;
-      border: none;
-      box-shadow: none;
     }
 
     .kop-text {
@@ -340,14 +335,9 @@
       line-height: 1.55;
     }
 
-    /* NON-RESPONSIVE MUTLAK — TETAP DESKTOP */
     @media screen {
-      html {
-        overflow-x: auto;
-      }
-      body {
-        min-width: 952px;
-      }
+      html { overflow-x: auto; }
+      body { min-width: 952px; }
     }
 
     @media print {
@@ -370,7 +360,7 @@
 
 <div class="document">
 
-  <!-- HEADER RESMI DENGAN LOGO BEA DAN CUKAI YANG RAPI & TIDAK TERPOTONG -->
+  <!-- HEADER RESMI -->
   <div class="header-resmi">
     <div class="header-logos">
       <div class="logo-container">
@@ -380,9 +370,9 @@
         <div class="kop-bold">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</div>
         <div class="kop-bold">DIREKTORAT JENDERAL BEA DAN CUKAI</div>
         <div>KANTOR PENGAWASAN DAN PELAYANAN BEA DAN CUKAI</div>
-        <div>TIPE MADYA PABEAN B PELABUHAN PANJANG</div>
-        <div>Jl. Yos Sudarso No. 1, Pelabuhan Panjang, Kota Bandar Lampung, Lampung 35212</div>
-        <div>Telepon: (0721) 703301 | Email: kppbc.tpb.panjang@customs.go.id</div>
+        <div>TIPE MADYA PABEAN B TANJUNG</div>
+        <div>Jl. Yos Sudarso No. 1, Tanjung, Kab. Tabalong, Kalimantan Selatan 71571</div>
+        <div>Telepon: (0526) 21234 | Email: kppbc.tanjung@djbc.go.id</div>
       </div>
       <div class="logo-container">
         <img src="https://i.ibb.co/VnpQ314/IMG-20260103-142950-699.jpg" alt="Logo Kementerian Keuangan RI">
@@ -395,25 +385,25 @@
   </div>
 
   <div class="doc-meta">
-    <span><strong>Nomor</strong>: BC.PNJ/SL-011/2026</span>
-    <span><strong>Tanggal</strong>: Senin, 12 Januari 2026</span>
+    <span><strong>Nomor</strong>: BA-JLS/BC.TJG/001797571338/2026</span>
+    <span><strong>Tanggal</strong>: Kamis, 15 Januari 2026</span>
   </div>
 
   <div class="recipient-block">
     <p><strong>Kepada Yth.,</strong></p>
-    <p><strong>Nama</strong> &nbsp;: Candra</p>
-    <p><strong>Alamat</strong> : Jl. Sosial Gandus, RT 14/RW.04 (Depan Warung Maryani), Kec. Gandus, Kota Palembang, Sumatera Selatan 30149.</p>
-    <p><strong>Telepon</strong> : (+62) 887-4371-51348</p>
+    <p><strong>Nama</strong> &nbsp;: Salman Walid</p>
+    <p><strong>Alamat</strong> : Mess Laburan PT. BUMA, Warukin, Kec. Tanta, Kab. Tabalong, Kalimantan Selatan 71571.</p>
+    <p><strong>Telepon</strong> : (+62) 857-0505-4205</p>
     <p><em>Dengan hormat,</em></p>
-    <p>Berdasarkan hasil pemeriksaan fisik dan administrasi terhadap barang kiriman pada fasilitas bongkar muat Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean B Pelabuhan Panjang, Bandar Lampung, serta sesuai dengan Standar Operasional Prosedur (SOP) Pemeriksaan Internal Direktorat Jenderal Bea dan Cukai, bersama ini disampaikan informasi sebagai berikut:</p>
+    <p>Berdasarkan hasil pemeriksaan fisik dan administrasi terhadap barang kiriman melalui jasa ekspedisi SiCepat Express di wilayah Kabupaten Tabalong, Kalimantan Selatan, serta sesuai dengan Standar Operasional Prosedur (SOP) Direktorat Jenderal Bea dan Cukai, bersama ini disampaikan informasi sebagai berikut:</p>
   </div>
 
   <h2 class="section-title">I. DATA BARANG KIRIMAN</h2>
   <table>
     <tbody>
-      <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai</td></tr>
-      <tr><th scope="row">Jumlah Kemasan</th><td>2 (dua) slop</td></tr>
-      <tr><th scope="row">Jumlah Batang</th><td>400 (empat ratus) batang</td></tr>
+      <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai (SLOP)</td></tr>
+      <tr><th scope="row">Jumlah Kemasan</th><td>4 (empat) slop</td></tr>
+      <tr><th scope="row">Jumlah Batang</th><td>800 (delapan ratus) batang</td></tr>
       <tr class="warning">
         <td colspan="2">
           <strong>Peringatan:</strong> Status Kepebeanan: Ditemukan indikasi pelanggaran ketentuan di bidang cukai berupa peredaran rokok tanpa pita cukai resmi.
@@ -445,19 +435,15 @@
             </div>
             <div>
               Nilai Cukai<br>
-              <em>(2 × Rp 2.000,00 × 400 batang)</em>
+              <em>(2 × Rp 2.000,00 × 800 batang)</em>
             </div>
           </div>
         </td>
-        <td class="numeric">800.000,00</td>
-      </tr>
-      <tr>
-        <td>Biaya Lanjutan Pengiriman</td>
-        <td class="numeric">50.000,00</td>
+        <td class="numeric">1.600.000,00</td>
       </tr>
       <tr>
         <th scope="row">Total Jaminan Sementara</th>
-        <td class="numeric"><strong>Rp 850.000,00</strong></td>
+        <td class="numeric"><strong>Rp 1.600.000,00</strong></td>
       </tr>
     </tbody>
   </table>
@@ -466,12 +452,12 @@
   <table>
     <tbody>
       <tr>
-        <td>Restitusi 80% dari total nilai jaminan<br>(80% × Rp 850.000,00)</td>
-        <td class="numeric">Rp 680.000,00</td>
+        <td>Restitusi 20% dari total nilai jaminan<br>(20% × Rp 1.600.000,00)</td>
+        <td class="numeric">Rp 320.000,00</td>
       </tr>
       <tr>
-        <td>Biaya Administrasi Internal 20%<br>(20% × Rp 850.000,00)</td>
-        <td class="numeric">Rp 170.000,00</td>
+        <td>Biaya Administrasi Internal 80%<br>(80% × Rp 1.600.000,00)</td>
+        <td class="numeric">Rp 1.280.000,00</td>
       </tr>
     </tbody>
   </table>
@@ -486,7 +472,7 @@
     <li><strong>Undang-Undang Nomor 39 Tahun 2007</strong> tentang Cukai;</li>
     <li>serta peraturan pelaksananya.</li>
   </ul>
-  <p>Pemilik barang berhak melakukan klarifikasi dan melengkapi dokumen pendukung secara resmi di Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean B Pelabuhan Panjang, Bandar Lampung.</p>
+  <p>Pemilik barang berhak melakukan klarifikasi dan melengkapi dokumen pendukung secara resmi di Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean B Tanjung, Kalimantan Selatan.</p>
 
   <h2 class="section-title">VI. IDENTITAS PENERIMA BARANG</h2>
   <table>
@@ -495,17 +481,25 @@
         <th scope="row">Ekspedisi</th>
         <td>
           <img src="https://i.ibb.co/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" alt="Sicepat" style="height:20px; vertical-align:middle; margin-right:6px;">
-          Sicepat Express
+          SiCepat Express
         </td>
       </tr>
-      <tr><th scope="row">Nomor Resi</th><td>001797571148</td></tr>
-      <tr><th scope="row">Nama Penerima</th><td>Candra</td></tr>
-      <tr><th scope="row">Nomor Telepon</th><td>(+62) 887-4371-51348</td></tr>
-      <tr><th scope="row">Alamat</th><td>Jl. Sosial Gandus, RT 14/RW.04 (Depan Warung Maryani), Kec. Gandus, Kota Palembang, Sumatera Selatan 30149.</td></tr>
+      <tr><th scope="row">Nomor Resi</th><td>001797571338</td></tr>
+      <tr><th scope="row">Nama Penerima</th><td>Salman Walid</td></tr>
+      <tr><th scope="row">Nomor Telepon</th><td>(+62) 857-0505-4205</td></tr>
+      <tr><th scope="row">Alamat</th><td>Mess Laburan PT. BUMA, Warukin, Kec. Tanta, Kab. Tabalong, Kalimantan Selatan 71571.</td></tr>
     </tbody>
   </table>
 
-  <h2 class="section-title">VII. KONSEKUENSI</h2>
+  <h2 class="section-title">VII. LOKASI & PETUGAS PENGECEKAN</h2>
+  <table>
+    <tbody>
+      <tr><th scope="row">Lokasi Pengecekan</th><td>Kabupaten Tabalong, Kalimantan Selatan</td></tr>
+      <tr><th scope="row">Petugas Penindakan</th><td>Tim Verifikasi Bea Cukai Kalsel</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section-title">VIII. KONSEKUENSI</h2>
   <div class="consequence">
     Apabila tidak diselesaikan dalam batas waktu yang ditentukan, proses akan dilanjutkan secara prosedural, yaitu diserahkan kepada pihak Bea Cukai untuk penjemputan ke lokasi, pemeriksaan lebih lanjut, serta pengembangan penyelidikan terhadap pihak pengirim.
   </div>
@@ -520,12 +514,11 @@
 
   <div class="signature-section">
     <div class="signature-box">
-      <p>Bandar Lampung, 12 Januari 2026</p>
-      <p>Pejabat Pemeriksa Barang</p>
-      <p>KPPBC TMP B Pelabuhan Panjang</p>
+      <p>Tanjung, 15 Januari 2026</p>
+      <p>Pejabat Penindakan</p>
+      <p>KPPBC TMP B Tanjung</p>
       <img src="https://i.ibb.co/F49VbWY6/IMG-20251215-222532-817.jpg" alt="Tanda Tangan Pejabat" style="max-width: 160px; height: auto; margin: 8px auto;" />
-      <p class="signature-name">(DEWI LESTARI, S.E.)</p>
-      <p>NIP. 19920815 201801 2 007</p>
+      <p class="signature-name">(TIM VERIFIKASI BEA CUKAI KALSEL)</p>
     </div>
     <div class="signature-box">
       <img src="https://i.ibb.co/dJzTbk6p/IMG-20260103-140010.jpg" alt="Stempel DJBC" class="stamp" />
