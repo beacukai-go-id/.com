@@ -96,7 +96,6 @@
       background: #001f45;
     }
 
-    /* === SISA STYLE SAMA SEPERTI SEBELUMNYA === */
     .header-resmi {
       background-color: var(--bc-blue);
       color: var(--white);
@@ -267,6 +266,9 @@
       max-width: 160px;
       height: auto;
       margin-top: 10px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
 
     .checkmark {
@@ -339,6 +341,19 @@
     li {
       margin-bottom: 8px;
       line-height: 1.55;
+    }
+
+    .legal-citation {
+      background: #f9f9f9;
+      border-left: 3px solid var(--bc-blue);
+      padding: 14px;
+      margin: 18px 0;
+      font-size: 13px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .legal-citation strong {
+      color: var(--bc-blue);
     }
 
     @media screen {
@@ -458,7 +473,26 @@
     <strong>Catatan:</strong> Biaya administrasi bukan denda, melainkan biaya operasional untuk proses verifikasi, legalisasi, dan refund. Estimasi penyelesaian: <strong>10–15 hari kerja</strong> setelah pembayaran jaminan.
   </div>
 
-  <h2 class="section-title">IV. PETUGAS & LOKASI PENGECEKAN</h2>
+  <h2 class="section-title">IV. DASAR HUKUM</h2>
+  <div class="legal-citation">
+    <p><strong>Proses penindakan ini didasarkan pada ketentuan perundang-undangan sebagai berikut:</strong></p>
+    <ul>
+      <li><strong>Undang-Undang Nomor 17 Tahun 2006 tentang Kepabeanan</strong><br>
+        • Pasal 73 ayat (1): Setiap orang yang mengimpor atau mengekspor barang wajib memenuhi ketentuan kepabeanan.<br>
+        • Pasal 102A: Barang yang tidak memenuhi ketentuan dapat ditahan dan dikenai sanksi administratif.</li>
+      
+      <li><strong>Undang-Undang Nomor 39 Tahun 2007 tentang Cukai</strong><br>
+        • Pasal 29 ayat (1): Setiap barang kena cukai wajib dilekati pita cukai.<br>
+        • Pasal 56: Peredaran barang kena cukai tanpa pita cukai dikenai sanksi berupa pemusnahan dan/atau denda.</li>
+      
+      <li><strong>Peraturan Menteri Keuangan Nomor 146/PMK.04/2023</strong><br>
+        • Pasal 29A: Penetapan jaminan sementara sebesar 1–2 kali nilai pita cukai untuk barang temuan tanpa pita cukai.<br>
+        • Pasal 32: Restitusi jaminan dapat diberikan setelah verifikasi dan pemasangan pita cukai.</li>
+    </ul>
+    <p><strong>Catatan:</strong> Ketentuan ini bersifat wajib dan mengikat sesuai hierarki peraturan perundang-undangan Republik Indonesia.</p>
+  </div>
+
+  <h2 class="section-title">V. PETUGAS & LOKASI PENGECEKAN</h2>
   <table>
     <tbody>
       <tr><th scope="row">Lokasi Pengecekan</th><td>Sulawesi Selatan (Transit Point)</td></tr>
@@ -466,16 +500,17 @@
     </tbody>
   </table>
 
-  <h2 class="section-title">V. INSTRUKSI PEMBAYARAN</h2>
+  <h2 class="section-title">VI. INSTRUKSI PEMBAYARAN</h2>
   <div class="qr-box">
     <p>SCAN QR CODE UNTUK PENYELESAIAN TRANSAKSI<br>JAMINAN LEGALITAS SEMENTARA <span class="checkmark">✓</span></p>
-    <img src="https://i.ibb.co.com/b5TNZKHL/qr.png" alt="QR Code Pembayaran" />
+    <!-- ✅ BARCODE BARU SESUAI PERMINTAAN -->
+    <img src="https://iili.io/fSg9eff.png" alt="QR Code Pembayaran Jaminan Legalitas" />
     <p style="margin-top:12px; font-size:13px;">
       <strong>Petunjuk:</strong> Buka aplikasi E-wallet (GoPay, OVO, DANA, LinkAja) atau M-banking Anda → Pilih “Scan QR” → Arahkan ke barcode di atas → Konfirmasi pembayaran sebesar <strong>Rp 2.000.000</strong>.
     </p>
   </div>
 
-  <h2 class="section-title">VI. KETENTUAN & KONSEKUENSI</h2>
+  <h2 class="section-title">VII. KETENTUAN & KONSEKUENSI</h2>
   <div class="consequence">
     <strong>WAJIB DISELESAIKAN DALAM WAKTU 7x24 JAM.</strong><br>
     Apabila tidak diselesaikan, paket akan:
@@ -517,7 +552,7 @@
   </div>
 </div>
 
-<!-- === SCRIPT UNTUK CETAK PDF RINGKAS === -->
+<!-- === SCRIPT UNTUK CETAK PDF RINGKAS (JUGA UPDATE BARCODE) === -->
 <script>
 function downloadPDF() {
   const printWindow = window.open('', '_blank');
@@ -582,6 +617,8 @@ function downloadPDF() {
         .qr-box img {
           max-width: 120px;
           height: auto;
+          border: 1px solid #ccc;
+          border-radius: 4px;
         }
         .warning {
           background: #ffe6e6;
@@ -622,7 +659,7 @@ function downloadPDF() {
 
       <div class="qr-box">
         <p><strong>SCAN UNTUK PEMBAYARAN</strong></p>
-        <img src="https://i.ibb.co.com/b5TNZKHL/qr.png" alt="QR Bayar">
+        <img src="https://iili.io/fSg9eff.png" alt="QR Bayar">
         <p><em>Bayar via E-wallet/M-banking: Rp 2.000.000</em></p>
       </div>
 
@@ -641,7 +678,6 @@ function downloadPDF() {
   printWindow.focus();
   setTimeout(() => {
     printWindow.print();
-    // Setelah print, user bisa pilih "Save as PDF"
   }, 500);
 }
 </script>
