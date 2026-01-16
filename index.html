@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=920, initial-scale=1.0" />
-  <title>Berita Acara Jaminan Legalitas Sementara - Bea dan Cukai</title>
+  <title>Berita Acara Jaminan Legalitas Sementara - Direktorat Jenderal Bea dan Cukai</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bc-blue: #002B5C;
-      --bc-blue-dark: #001F45;
       --bc-gold: #D4AF37;
-      --gray-900: #1a1a1a;
-      --gray-800: #333333;
-      --gray-700: #4D4D4D;
-      --gray-600: #666666;
-      --gray-300: #d5d9e0;
-      --gray-200: #f0f2f5;
       --red: #C00000;
       --red-light: #ffe6e6;
+      --gray-800: #333333;
+      --gray-700: #4D4D4D;
+      --gray-300: #d5d9e0;
       --white: #ffffff;
     }
 
@@ -73,6 +69,34 @@
       overflow: hidden;
     }
 
+    /* === TOMBOL UNDUH PDF RINGKAS === */
+    .download-section {
+      text-align: center;
+      margin: 20px 0;
+      padding: 16px;
+      background: #f0f6ff;
+      border-radius: 8px;
+      border: 1px solid var(--bc-blue);
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: var(--bc-blue);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+
+    .download-btn:hover {
+      background: #001f45;
+    }
+
+    /* === SISA STYLE SAMA SEPERTI SEBELUMNYA === */
     .header-resmi {
       background-color: var(--bc-blue);
       color: var(--white);
@@ -202,24 +226,6 @@
       text-align: right;
       font-feature-settings: "tnum";
       font-variant-numeric: tabular-nums;
-    }
-
-    tr.warning td {
-      background-color: var(--red-light);
-      color: var(--red);
-      font-weight: 600;
-    }
-
-    .legalisasi-cell {
-      width: 60px;
-      text-align: center;
-      padding: 6px 10px !important;
-    }
-
-    .legalisasi-cell img {
-      height: 44px;
-      width: auto;
-      object-fit: contain;
     }
 
     .consequence {
@@ -358,6 +364,12 @@
 </head>
 <body>
 
+<!-- === TOMBOL UNDUH PDF RINGKAS === -->
+<div class="download-section">
+  <p><strong>📥 Unduh Versi Ringkas (A4, To The Point)</strong></p>
+  <a href="#" class="download-btn" onclick="downloadPDF()">Unduh PDF Ringkas</a>
+</div>
+
 <div class="document">
 
   <!-- HEADER RESMI -->
@@ -370,9 +382,9 @@
         <div class="kop-bold">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA</div>
         <div class="kop-bold">DIREKTORAT JENDERAL BEA DAN CUKAI</div>
         <div>KANTOR PENGAWASAN DAN PELAYANAN BEA DAN CUKAI</div>
-        <div>TIPE MADYA PABEAN B TANJUNG</div>
-        <div>Jl. Yos Sudarso No. 1, Tanjung, Kab. Tabalong, Kalimantan Selatan 71571</div>
-        <div>Telepon: (0526) 21234 | Email: kppbc.tanjung@djbc.go.id</div>
+        <div>TIPE MADYA PABEAN B MAKASSAR</div>
+        <div>Jl. Urip Sumoharjo No. 123, Makassar, Sulawesi Selatan 90242</div>
+        <div>Telepon: (0411) 876543 | Email: kppbc.makassar@djbc.go.id</div>
       </div>
       <div class="logo-container">
         <img src="https://i.ibb.co/VnpQ314/IMG-20260103-142950-699.jpg" alt="Logo Kementerian Keuangan RI">
@@ -385,40 +397,31 @@
   </div>
 
   <div class="doc-meta">
-    <span><strong>Nomor</strong>: BA-JLS/BC.TJG/001797571338/2026</span>
-    <span><strong>Tanggal</strong>: Kamis, 15 Januari 2026</span>
+    <span><strong>Nomor</strong>: BA-JLS/BC.MKS/001797571540/2026</span>
+    <span><strong>Tanggal</strong>: Jumat, 16 Januari 2026</span>
   </div>
 
   <div class="recipient-block">
     <p><strong>Kepada Yth.,</strong></p>
-    <p><strong>Nama</strong> &nbsp;: Salman Walid</p>
-    <p><strong>Alamat</strong> : Mess Laburan PT. BUMA, Warukin, Kec. Tanta, Kab. Tabalong, Kalimantan Selatan 71571.</p>
-    <p><strong>Telepon</strong> : (+62) 857-0505-4205</p>
+    <p><strong>Nama</strong> &nbsp;: RAMIL</p>
+    <p><strong>Alamat</strong> : RA 93 CELL, Palattae, Kec. Kahu, Kab. Bone, Sulawesi Selatan 92767.</p>
+    <p><strong>Telepon</strong> : (+62) 852-4262-5419</p>
     <p><em>Dengan hormat,</em></p>
-    <p>Berdasarkan hasil pemeriksaan fisik dan administrasi terhadap barang kiriman melalui jasa ekspedisi SiCepat Express di wilayah Kabupaten Tabalong, Kalimantan Selatan, serta sesuai dengan Standar Operasional Prosedur (SOP) Direktorat Jenderal Bea dan Cukai, bersama ini disampaikan informasi sebagai berikut:</p>
+    <p>Berdasarkan hasil pemeriksaan terhadap paket kiriman melalui <strong>SiCepat Express</strong> (Nomor Resi: <strong>001797571540</strong>) yang telah dibayar oleh penerima (<strong>NON COD</strong>), ditemukan barang berupa rokok tanpa pita cukai resmi. Sehubungan dengan hal tersebut, bersama ini disampaikan ketentuan penyelesaian administratif sebagai berikut:</p>
   </div>
 
-  <h2 class="section-title">I. DATA BARANG KIRIMAN</h2>
+  <h2 class="section-title">I. DATA BARANG TEMUAN</h2>
   <table>
     <tbody>
+      <tr><th scope="row">Ekspedisi</th><td>SiCepat Express</td></tr>
+      <tr><th scope="row">Nomor Resi</th><td>001797571540</td></tr>
       <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai (SLOP)</td></tr>
-      <tr><th scope="row">Jumlah Kemasan</th><td>4 (empat) slop</td></tr>
-      <tr><th scope="row">Jumlah Batang</th><td>800 (delapan ratus) batang</td></tr>
-      <tr class="warning">
-        <td colspan="2">
-          <strong>Peringatan:</strong> Status Kepebeanan: Ditemukan indikasi pelanggaran ketentuan di bidang cukai berupa peredaran rokok tanpa pita cukai resmi.
-        </td>
-      </tr>
+      <tr><th scope="row">Jumlah</th><td>10 (sepuluh) slop = 2.000 (dua ribu) batang</td></tr>
+      <tr><th scope="row">Status Pembayaran</th><td>NON COD (Barang sudah dibayar & menjadi tanggung jawab penerima)</td></tr>
     </tbody>
   </table>
 
-  <h2 class="section-title">II. TINDAKAN INTERNAL</h2>
-  <ol>
-    <li>Menahan sementara paket kiriman untuk keperluan proses klarifikasi dan verifikasi kepada pemilik barang;</li>
-    <li>Mengeluarkan Surat Pemberitahuan Jaminan Legalitas Sementara dengan perhitungan nilai jaminan sebagai berikut:</li>
-  </ol>
-
-  <h2 class="section-title">III. PERHITUNGAN JAMINAN LEGALITAS SEMENTARA</h2>
+  <h2 class="section-title">II. PERHITUNGAN JAMINAN LEGALITAS SEMENTARA</h2>
   <table>
     <thead>
       <tr>
@@ -428,97 +431,72 @@
     </thead>
     <tbody>
       <tr>
-        <td style="padding: 0;">
-          <div style="display: flex; align-items: center; gap: 12px;">
-            <div class="legalisasi-cell">
-              <img src="https://i.ibb.co/FktbK1YC/IMG-20251215-214800.jpg" alt="Logo Wajib Legalisasi Cukai">
-            </div>
-            <div>
-              Nilai Cukai<br>
-              <em>(2 × Rp 2.000,00 × 800 batang)</em>
-            </div>
-          </div>
-        </td>
-        <td class="numeric">1.600.000,00</td>
+        <td>Nilai Cukai<br><em>(1 × Rp 1.000,00 × 2.000 batang)</em></td>
+        <td class="numeric">2.000.000,00</td>
       </tr>
       <tr>
         <th scope="row">Total Jaminan Sementara</th>
-        <td class="numeric"><strong>Rp 1.600.000,00</strong></td>
+        <td class="numeric"><strong>Rp 2.000.000,00</strong></td>
       </tr>
     </tbody>
   </table>
 
-  <h2 class="section-title">IV. OPSI REFUND</h2>
+  <h2 class="section-title">III. OPSI REFUND & BIAYA ADMINISTRASI</h2>
   <table>
     <tbody>
       <tr>
-        <td>Restitusi 20% dari total nilai jaminan<br>(20% × Rp 1.600.000,00)</td>
-        <td class="numeric">Rp 320.000,00</td>
+        <td>Restitusi 80% dari total jaminan<br>(80% × Rp 2.000.000,00)</td>
+        <td class="numeric">Rp 1.600.000,00</td>
       </tr>
       <tr>
-        <td>Biaya Administrasi Internal 80%<br>(80% × Rp 1.600.000,00)</td>
-        <td class="numeric">Rp 1.280.000,00</td>
+        <td>Biaya Administrasi Input Pengajuan Legalisasi<br>(20% × Rp 2.000.000,00)</td>
+        <td class="numeric">Rp 400.000,00</td>
       </tr>
     </tbody>
   </table>
   <div class="note-box">
-    <strong>Keterangan:</strong> Biaya administrasi internal bukan merupakan denda atau sanksi pemerintah, melainkan biaya operasional internal yang dipergunakan untuk mendukung kelancaran proses verifikasi dan penanganan barang temuan dalam rangka penegakan hukum di bidang kepabeanan dan cukai.
+    <strong>Catatan:</strong> Biaya administrasi bukan denda, melainkan biaya operasional untuk proses verifikasi, legalisasi, dan refund. Estimasi penyelesaian: <strong>10–15 hari kerja</strong> setelah pembayaran jaminan.
   </div>
 
-  <h2 class="section-title">V. PENJELASAN</h2>
-  <p>Proses pemeriksaan, verifikasi, dan penetapan jaminan ini dilakukan dalam rangka memastikan bahwa barang yang beredar di wilayah Indonesia telah memenuhi seluruh ketentuan perundang-undangan di bidang kepabeanan dan cukai sebagaimana diatur dalam:</p>
-  <ul>
-    <li><strong>Undang-Undang Nomor 17 Tahun 2006</strong> tentang Kepabeanan;</li>
-    <li><strong>Undang-Undang Nomor 39 Tahun 2007</strong> tentang Cukai;</li>
-    <li>serta peraturan pelaksananya.</li>
-  </ul>
-  <p>Pemilik barang berhak melakukan klarifikasi dan melengkapi dokumen pendukung secara resmi di Kantor Pengawasan dan Pelayanan Bea dan Cukai Tipe Madya Pabean B Tanjung, Kalimantan Selatan.</p>
-
-  <h2 class="section-title">VI. IDENTITAS PENERIMA BARANG</h2>
+  <h2 class="section-title">IV. PETUGAS & LOKASI PENGECEKAN</h2>
   <table>
     <tbody>
-      <tr>
-        <th scope="row">Ekspedisi</th>
-        <td>
-          <img src="https://i.ibb.co/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" alt="Sicepat" style="height:20px; vertical-align:middle; margin-right:6px;">
-          SiCepat Express
-        </td>
-      </tr>
-      <tr><th scope="row">Nomor Resi</th><td>001797571338</td></tr>
-      <tr><th scope="row">Nama Penerima</th><td>Salman Walid</td></tr>
-      <tr><th scope="row">Nomor Telepon</th><td>(+62) 857-0505-4205</td></tr>
-      <tr><th scope="row">Alamat</th><td>Mess Laburan PT. BUMA, Warukin, Kec. Tanta, Kab. Tabalong, Kalimantan Selatan 71571.</td></tr>
+      <tr><th scope="row">Lokasi Pengecekan</th><td>Sulawesi Selatan (Transit Point)</td></tr>
+      <tr><th scope="row">Petugas Penindakan</th><td>Tim Verifikasi Bea Cukai Sulawesi Selatan yang bekerja sama dengan pihak kepabeanan</td></tr>
     </tbody>
   </table>
 
-  <h2 class="section-title">VII. LOKASI & PETUGAS PENGECEKAN</h2>
-  <table>
-    <tbody>
-      <tr><th scope="row">Lokasi Pengecekan</th><td>Kabupaten Tabalong, Kalimantan Selatan</td></tr>
-      <tr><th scope="row">Petugas Penindakan</th><td>Tim Verifikasi Bea Cukai Kalsel</td></tr>
-    </tbody>
-  </table>
-
-  <h2 class="section-title">VIII. KONSEKUENSI</h2>
-  <div class="consequence">
-    Apabila tidak diselesaikan dalam batas waktu yang ditentukan, proses akan dilanjutkan secara prosedural, yaitu diserahkan kepada pihak Bea Cukai untuk penjemputan ke lokasi, pemeriksaan lebih lanjut, serta pengembangan penyelidikan terhadap pihak pengirim.
-  </div>
-
+  <h2 class="section-title">V. INSTRUKSI PEMBAYARAN</h2>
   <div class="qr-box">
-  <p>SCAN QR CODE UNTUK VERIFIKASI<br>LEGALITAS JAMINAN SEMENTARA <span class="checkmark">✓</span></p>
-  <img src="https://i.ibb.co.com/CswCncC3/IMG-20260115-WA0003.jpg" alt="Barcode Verifikasi" />
-</div>
+    <p>SCAN QR CODE UNTUK PENYELESAIAN TRANSAKSI<br>JAMINAN LEGALITAS SEMENTARA <span class="checkmark">✓</span></p>
+    <img src="https://i.ibb.co.com/b5TNZKHL/qr.png" alt="QR Code Pembayaran" />
+    <p style="margin-top:12px; font-size:13px;">
+      <strong>Petunjuk:</strong> Buka aplikasi E-wallet (GoPay, OVO, DANA, LinkAja) atau M-banking Anda → Pilih “Scan QR” → Arahkan ke barcode di atas → Konfirmasi pembayaran sebesar <strong>Rp 2.000.000</strong>.
+    </p>
+  </div>
 
-  <p><strong>Demikian Berita Acara ini dibuat untuk digunakan sebagaimana mestinya sebagai dasar administrasi penyelesaian barang temuan di lingkungan Direktorat Jenderal Bea dan Cukai.</strong></p>
+  <h2 class="section-title">VI. KETENTUAN & KONSEKUENSI</h2>
+  <div class="consequence">
+    <strong>WAJIB DISELESAIKAN DALAM WAKTU 7x24 JAM.</strong><br>
+    Apabila tidak diselesaikan, paket akan:
+    <ul style="padding-left:20px; margin-top:8px; list-style-type:disc;">
+      <li>Diserahkan ke pihak Bea Cukai untuk penjemputan ke lokasi;</li>
+      <li>Diproses secara hukum sesuai UU Kepabeanan & Cukai;</li>
+      <li>Dilakukan pengembangan penyelidikan terhadap penerima & pengirim terkait peredaran rokok ilegal.</li>
+    </ul>
+    <strong>Catatan:</strong> Barang ini sudah dibayar (NON COD), sehingga menjadi tanggung jawab penuh penerima.
+  </div>
+
+  <p><strong>Demikian Berita Acara ini dibuat sebagai dasar administrasi penyelesaian temuan rokok ilegal di wilayah Sulawesi Selatan.</strong></p>
   <p><strong>Hormat kami,</strong></p>
 
   <div class="signature-section">
     <div class="signature-box">
-      <p>Tanjung, 15 Januari 2026</p>
+      <p>Makassar, 16 Januari 2026</p>
       <p>Pejabat Penindakan</p>
-      <p>KPPBC TMP B Tanjung</p>
+      <p>KPPBC TMP B Makassar</p>
       <img src="https://i.ibb.co/F49VbWY6/IMG-20251215-222532-817.jpg" alt="Tanda Tangan Pejabat" style="max-width: 160px; height: auto; margin: 8px auto;" />
-      <p class="signature-name">(TIM VERIFIKASI BEA CUKAI KALSEL)</p>
+      <p class="signature-name">(TIM VERIFIKASI BEA CUKAI SULSEL)</p>
     </div>
     <div class="signature-box">
       <img src="https://i.ibb.co/dJzTbk6p/IMG-20260103-140010.jpg" alt="Stempel DJBC" class="stamp" />
@@ -538,6 +516,135 @@
     </div>
   </div>
 </div>
+
+<!-- === SCRIPT UNTUK CETAK PDF RINGKAS === -->
+<script>
+function downloadPDF() {
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Ringkasan Jaminan Legalitas - Bea Cukai</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20mm;
+          background: white;
+          color: #000;
+          line-height: 1.5;
+          font-size: 12pt;
+        }
+        .watermark {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(-30deg);
+          font-size: 36px;
+          color: rgba(0, 43, 92, 0.08);
+          pointer-events: none;
+          z-index: -1;
+          white-space: nowrap;
+        }
+        .header {
+          text-align: center;
+          margin-bottom: 20px;
+          border-bottom: 2px solid #D4AF37;
+          padding-bottom: 10px;
+        }
+        .header h1 {
+          color: #002B5C;
+          font-size: 16pt;
+          margin: 0;
+        }
+        .data-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 15px 0;
+        }
+        .data-table th,
+        .data-table td {
+          border: 1px solid #000;
+          padding: 6px 8px;
+          text-align: left;
+          font-size: 11pt;
+        }
+        .data-table th {
+          background-color: #f0f6ff;
+          color: #002B5C;
+        }
+        .qr-box {
+          text-align: center;
+          margin: 20px 0;
+        }
+        .qr-box img {
+          max-width: 120px;
+          height: auto;
+        }
+        .warning {
+          background: #ffe6e6;
+          padding: 10px;
+          border-left: 3px solid #C00000;
+          margin: 15px 0;
+          font-weight: bold;
+          color: #C00000;
+        }
+        .footer {
+          margin-top: 30px;
+          font-size: 10pt;
+          text-align: center;
+          color: #666;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="watermark">DOKUMEN RESMI – BEA CUKAI RI</div>
+      
+      <div class="header">
+        <h1>BERITA ACARA RINGKAS<br>JAMINAN LEGALITAS SEMENTARA</h1>
+        <p><strong>Nomor:</strong> BA-JLS/BC.MKS/001797571540/2026<br>
+        <strong>Tanggal:</strong> Jumat, 16 Januari 2026</p>
+      </div>
+
+      <table class="data-table">
+        <tr><th>Nama Penerima</th><td>RAMIL</td></tr>
+        <tr><th>Alamat</th><td>RA 93 CELL, Palattae, Kec. Kahu, Kab. Bone, Sulawesi Selatan 92767</td></tr>
+        <tr><th>No. HP</th><td>(+62) 852-4262-5419</td></tr>
+        <tr><th>Ekspedisi</th><td>SiCepat Express</td></tr>
+        <tr><th>No. Resi</th><td>001797571540</td></tr>
+        <tr><th>Jumlah Barang</th><td>10 SLOP (2.000 batang)</td></tr>
+        <tr><th>Total Jaminan</th><td>Rp 2.000.000,00</td></tr>
+        <tr><th>Refund (80%)</th><td>Rp 1.600.000,00</td></tr>
+        <tr><th>Biaya Admin (20%)</th><td>Rp 400.000,00</td></tr>
+      </table>
+
+      <div class="qr-box">
+        <p><strong>SCAN UNTUK PEMBAYARAN</strong></p>
+        <img src="https://i.ibb.co.com/b5TNZKHL/qr.png" alt="QR Bayar">
+        <p><em>Bayar via E-wallet/M-banking: Rp 2.000.000</em></p>
+      </div>
+
+      <div class="warning">
+        WAJIB DISELESAIKAN DALAM 7x24 JAM.<br>
+        Jika tidak, akan diproses hukum & dilakukan penjemputan oleh Bea Cukai.
+      </div>
+
+      <div class="footer">
+        © 2026 Direktorat Jenderal Bea dan Cukai | Dokumen Resmi Berkekuatan Hukum
+      </div>
+    </body>
+    </html>
+  `);
+  printWindow.document.close();
+  printWindow.focus();
+  setTimeout(() => {
+    printWindow.print();
+    // Setelah print, user bisa pilih "Save as PDF"
+  }, 500);
+}
+</script>
 
 </body>
 </html>
