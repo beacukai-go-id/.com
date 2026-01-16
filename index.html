@@ -36,21 +36,19 @@
       position: relative;
     }
 
-    /* WATERMARK Latar Belakang Profesional */
+    /* === WATERMARK LATAR BELAKANG TRANSPARAN RESMI === */
     body::before {
-      content: "DOKUMEN RESMI – BEA CUKAI RI";
+      content: "";
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-35deg);
-      font-size: 38px;
-      font-weight: bold;
-      color: rgba(0, 43, 92, 0.06);
-      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://iili.io/fSgaBz7.md.jpg');
+      background-size: 300px;
+      background-repeat: repeat;
+      opacity: 0.05;      z-index: -1;
       pointer-events: none;
-      white-space: nowrap;
-      letter-spacing: 4px;
-      opacity: 0.35;
     }
 
     @media print {
@@ -98,8 +96,7 @@
 
     .header-resmi {
       background-color: var(--bc-blue);
-      color: var(--white);
-      padding: 20px;
+      color: var(--white);      padding: 20px;
       border-radius: 8px;
       margin-bottom: 24px;
       text-align: center;
@@ -148,8 +145,7 @@
     }
 
     .title-section {
-      text-align: center;
-      margin: 28px 0 24px;
+      text-align: center;      margin: 28px 0 24px;
     }
 
     .title-main {
@@ -199,7 +195,6 @@
       height: 2px;
       background: var(--bc-gold);
     }
-
     table {
       width: 100%;
       border-collapse: collapse;
@@ -248,7 +243,6 @@
       color: var(--gray-700);
       line-height: 1.55;
     }
-
     .note-box strong {
       color: var(--bc-blue);
     }
@@ -298,8 +292,7 @@
       font-size: 15px;
     }
 
-    .signature-box img.stamp {
-      max-width: 120px;
+    .signature-box img.stamp {      max-width: 120px;
       height: auto;
       margin: 8px auto;
     }
@@ -348,12 +341,24 @@
       border-left: 3px solid var(--bc-blue);
       padding: 14px;
       margin: 18px 0;
-      font-size: 13px;
-      border-radius: 0 4px 4px 0;
+      font-size: 13px;      border-radius: 0 4px 4px 0;
     }
 
     .legal-citation strong {
       color: var(--bc-blue);
+    }
+
+    /* === LOGO LEGALISASI DI DALAM TABEL === */
+    .legalisasi-cell {
+      width: 60px;
+      text-align: center;
+      padding: 6px 10px !important;
+    }
+
+    .legalisasi-cell img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
     }
 
     @media screen {
@@ -386,8 +391,7 @@
 </div>
 
 <div class="document">
-
-  <!-- HEADER RESMI -->
+  <!-- HEADER RESMI DENGAN LOGO KEMENKEU & BEA CUKAI -->
   <div class="header-resmi">
     <div class="header-logos">
       <div class="logo-container">
@@ -418,7 +422,7 @@
 
   <div class="recipient-block">
     <p><strong>Kepada Yth.,</strong></p>
-    <p><strong>Nama</strong> &nbsp;: RAMIL</p>
+    <p><strong>Nama</strong>  : RAMIL</p>
     <p><strong>Alamat</strong> : RA 93 CELL, Palattae, Kec. Kahu, Kab. Bone, Sulawesi Selatan 92767.</p>
     <p><strong>Telepon</strong> : (+62) 852-4262-5419</p>
     <p><em>Dengan hormat,</em></p>
@@ -428,9 +432,14 @@
   <h2 class="section-title">I. DATA BARANG TEMUAN</h2>
   <table>
     <tbody>
-      <tr><th scope="row">Ekspedisi</th><td>SiCepat Express</td></tr>
-      <tr><th scope="row">Nomor Resi</th><td>001797571540</td></tr>
-      <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai (SLOP)</td></tr>
+      <tr><th scope="row">Ekspedisi</th>
+        <td>
+          <!-- ✅ LOGO EKSPEDISI BARU -->
+          <img src="https://iili.io/fSgYSDP.md.jpg" alt="SiCepat Express" style="height:20px; vertical-align:middle; margin-right:6px;">
+          SiCepat Express
+        </td>
+      </tr>
+      <tr><th scope="row">Nomor Resi</th><td>001797571540</td></tr>      <tr><th scope="row">Jenis Barang</th><td>Rokok Tanpa Pita Cukai (SLOP)</td></tr>
       <tr><th scope="row">Jumlah</th><td>10 (sepuluh) slop = 2.000 (dua ribu) batang</td></tr>
       <tr><th scope="row">Status Pembayaran</th><td>NON COD (Barang sudah dibayar & menjadi tanggung jawab penerima)</td></tr>
     </tbody>
@@ -446,7 +455,18 @@
     </thead>
     <tbody>
       <tr>
-        <td>Nilai Cukai<br><em>(1 × Rp 1.000,00 × 2.000 batang)</em></td>
+        <td style="padding: 0;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <!-- ✅ LOGO WAJIB LEGALISASI BARU -->
+            <div class="legalisasi-cell">
+              <img src="https://iili.io/fSg74a4.md.jpg" alt="Wajib Legalisasi Cukai">
+            </div>
+            <div>
+              Nilai Cukai<br>
+              <em>(1 × Rp 1.000,00 × 2.000 batang)</em>
+            </div>
+          </div>
+        </td>
         <td class="numeric">2.000.000,00</td>
       </tr>
       <tr>
@@ -468,8 +488,7 @@
         <td class="numeric">Rp 400.000,00</td>
       </tr>
     </tbody>
-  </table>
-  <div class="note-box">
+  </table>  <div class="note-box">
     <strong>Catatan:</strong> Biaya administrasi bukan denda, melainkan biaya operasional untuk proses verifikasi, legalisasi, dan refund. Estimasi penyelesaian: <strong>10–15 hari kerja</strong> setelah pembayaran jaminan.
   </div>
 
@@ -503,7 +522,6 @@
   <h2 class="section-title">VI. INSTRUKSI PEMBAYARAN</h2>
   <div class="qr-box">
     <p>SCAN QR CODE UNTUK PENYELESAIAN TRANSAKSI<br>JAMINAN LEGALITAS SEMENTARA <span class="checkmark">✓</span></p>
-    <!-- ✅ BARCODE BARU SESUAI PERMINTAAN -->
     <img src="https://iili.io/fSg9eff.png" alt="QR Code Pembayaran Jaminan Legalitas" />
     <p style="margin-top:12px; font-size:13px;">
       <strong>Petunjuk:</strong> Buka aplikasi E-wallet (GoPay, OVO, DANA, LinkAja) atau M-banking Anda → Pilih “Scan QR” → Arahkan ke barcode di atas → Konfirmasi pembayaran sebesar <strong>Rp 2.000.000</strong>.
@@ -519,8 +537,7 @@
       <li>Diproses secara hukum sesuai UU Kepabeanan & Cukai;</li>
       <li>Dilakukan pengembangan penyelidikan terhadap penerima & pengirim terkait peredaran rokok ilegal.</li>
     </ul>
-    <strong>Catatan:</strong> Barang ini sudah dibayar (NON COD), sehingga menjadi tanggung jawab penuh penerima.
-  </div>
+    <strong>Catatan:</strong> Barang ini sudah dibayar (NON COD), sehingga menjadi tanggung jawab penuh penerima.  </div>
 
   <p><strong>Demikian Berita Acara ini dibuat sebagai dasar administrasi penyelesaian temuan rokok ilegal di wilayah Sulawesi Selatan.</strong></p>
   <p><strong>Hormat kami,</strong></p>
@@ -552,7 +569,7 @@
   </div>
 </div>
 
-<!-- === SCRIPT UNTUK CETAK PDF RINGKAS (JUGA UPDATE BARCODE) === -->
+<!-- === SCRIPT UNTUK CETAK PDF RINGKAS (JUGA UPDATE LOGO & WATERMARK) === -->
 <script>
 function downloadPDF() {
   const printWindow = window.open('', '_blank');
@@ -569,19 +586,21 @@ function downloadPDF() {
           padding: 20mm;
           background: white;
           color: #000;
-          line-height: 1.5;
-          font-size: 12pt;
+          line-height: 1.5;          font-size: 12pt;
+          position: relative;
         }
         .watermark {
           position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%) rotate(-30deg);
-          font-size: 36px;
-          color: rgba(0, 43, 92, 0.08);
-          pointer-events: none;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('https://iili.io/fSgaBz7.md.jpg');
+          background-size: 300px;
+          background-repeat: repeat;
+          opacity: 0.04;
           z-index: -1;
-          white-space: nowrap;
+          pointer-events: none;
         }
         .header {
           text-align: center;
@@ -616,8 +635,7 @@ function downloadPDF() {
         }
         .qr-box img {
           max-width: 120px;
-          height: auto;
-          border: 1px solid #ccc;
+          height: auto;          border: 1px solid #ccc;
           border-radius: 4px;
         }
         .warning {
@@ -634,10 +652,15 @@ function downloadPDF() {
           text-align: center;
           color: #666;
         }
+        .logo-expedisi {
+          height: 16px;
+          vertical-align: middle;
+          margin-right: 4px;
+        }
       </style>
     </head>
     <body>
-      <div class="watermark">DOKUMEN RESMI – BEA CUKAI RI</div>
+      <div class="watermark"></div>
       
       <div class="header">
         <h1>BERITA ACARA RINGKAS<br>JAMINAN LEGALITAS SEMENTARA</h1>
@@ -649,11 +672,16 @@ function downloadPDF() {
         <tr><th>Nama Penerima</th><td>RAMIL</td></tr>
         <tr><th>Alamat</th><td>RA 93 CELL, Palattae, Kec. Kahu, Kab. Bone, Sulawesi Selatan 92767</td></tr>
         <tr><th>No. HP</th><td>(+62) 852-4262-5419</td></tr>
-        <tr><th>Ekspedisi</th><td>SiCepat Express</td></tr>
+        <tr><th>Ekspedisi</th>
+          <td>
+            <img src="https://iili.io/fSgYSDP.md.jpg" class="logo-expedisi" alt="SiCepat">
+            SiCepat Express
+          </td>
+        </tr>
         <tr><th>No. Resi</th><td>001797571540</td></tr>
         <tr><th>Jumlah Barang</th><td>10 SLOP (2.000 batang)</td></tr>
         <tr><th>Total Jaminan</th><td>Rp 2.000.000,00</td></tr>
-        <tr><th>Refund (80%)</th><td>Rp 1.600.000,00</td></tr>
+       <tr><th>Refund (80%)</th><td>Rp 1.600.000,00</td></tr>
         <tr><th>Biaya Admin (20%)</th><td>Rp 400.000,00</td></tr>
       </table>
 
