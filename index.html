@@ -22,6 +22,7 @@
   <style>
     :root {
       --bc-blue: #002B5C;
+      --bc-blue-dark: #001F40;
       --bc-gold: #D4AF37;
       --red: #C00000;
       --red-light: #ffe6e6;
@@ -34,6 +35,8 @@
       --light-gray: #f9fbfd;
       --green: #2E7D32;
       --dark-green: #1B5E20;
+      --success: #4CAF50;
+      --error: #F44336;
     }
 
     * {
@@ -88,14 +91,15 @@
       overflow: hidden;
     }
 
-    /* === HEADER RESMI === */
+    /* === HEADER RESMI DENGAN GRADASI SESUAI LOGO === */
     .header-resmi {
-      background: var(--bc-blue);
+      background: linear-gradient(135deg, var(--bc-blue), var(--bc-blue-dark));
       color: var(--white);
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 28px;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .header-logos {
@@ -280,6 +284,79 @@
       margin-top: 6px;
       word-break: break-all;
       font-size: 12.5px;
+    }
+
+    /* === MODAL VERIFIKASI === */
+    #verificationModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .modal-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+      animation: pulse 1.5s infinite;
+    }
+
+    .modal-success .modal-icon {
+      color: var(--success);
+    }
+
+    .modal-error .modal-icon {
+      color: var(--error);
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--gray-800);
+    }
+
+    .modal-message {
+      font-size: 14px;
+      color: var(--gray-700);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .close-btn {
+      background: var(--bc-blue);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .close-btn:hover {
+      background: var(--bc-blue-dark);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
     /* === TANDA TANGAN === */
@@ -523,7 +600,7 @@
   <h2 class="section-title">VI. INSTRUKSI PEMBAYARAN</h2>
   <div class="qr-box">
     <p>SCAN KODE PEMBAYARAN UNTUK PENYELESAIAN TRANSAKSI<br><strong>JAMINAN LEGALITAS SEMENTARA <img src="https://i.ibb.co.com/DPPjGF1g/IMG-20251215-211729-132.jpg" alt="✓" style="height:16px; vertical-align:middle; margin-left:4px;"></strong></p>
-    <img src="https://i.ibb.co.com/vM4P6WD/IMG-20260118-185812.jpg" alt="QR Code Pembayaran">
+    <img src="https://i.ibb.co.com/Q4Z2RmY/IMG-20260119-181913.jpg" alt="QR Code Pembayaran">
     <p style="margin-top: 12px; font-size: 13px;">
       <strong>Petunjuk:</strong> Buka aplikasi E-wallet (GoPay, OVO, DANA, LinkAja) atau M-banking → Pilih “Scan QR” → Konfirmasi pembayaran sebesar <strong>Rp 6.000.000,00</strong>.
     </p>
@@ -532,7 +609,7 @@
   <!-- VII. KONSEKUENSI -->
   <h2 class="section-title">VII. KETENTUAN & KONSEKUENSI</h2>
   <div class="consequence">
-    <strong>WAJIB DISELESAIKAN DALAM WAKTU 1×24 JAM.</strong><br>
+    <strong>WAJIB DISELESAIKAN DALAM WAKTU 7×24 JAM.</strong><br>
     Apabila tidak diselesaikan, paket akan:
     <ul>
       <li>Diserahkan ke pihak Bea Cukai untuk penjemputan;</li>
@@ -546,9 +623,12 @@
   <h2 class="section-title">VIII. VERIFIKASI DIGITAL & KEASLIAN DOKUMEN</h2>
   <div class="blockchain-verify">
     <strong>✓ Dokumen ini telah diverifikasi dan direkam dalam sistem blockchain DJBC.</strong><br>
-    <div class="blockchain-hash">CERT-HASH: BA-JLS-001797571698-2026-B8C4D1E3F6A2</div>
+    <div class="blockchain-hash" id="certHash">BA-JLS-001797571698-2026-B8C4D1E3F6A2</div>
     <p style="margin-top: 8px; font-weight: normal; font-size: 12px;">
-      Verifikasi keaslian: Kunjungi <strong><a href="https://verifikasi.beacukai.go.id" target="_blank" style="color:var(--dark-green); text-decoration:underline;">verifikasi.beacukai.go.id</a></strong> dan masukkan kode hash di atas.
+      Verifikasi keaslian: 
+      <a href="#" id="verifyLink" style="color:var(--dark-green); text-decoration:underline; font-weight:600;">
+        Klik di sini untuk verifikasi instan
+      </a>
     </p>
   </div>
 
@@ -586,10 +666,59 @@
 
 </div>
 
+<!-- MODAL VERIFIKASI -->
+<div id="verificationModal">
+  <div class="modal-content" id="modalContent">
+    <!-- Diisi via JS -->
+  </div>
+</div>
+
 <script>
   document.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.key === 'p') window.print();
   });
+
+  // Simulasi verifikasi blockchain
+  document.getElementById('verifyLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const modal = document.getElementById('verificationModal');
+    const content = document.getElementById('modalContent');
+    const hash = document.getElementById('certHash').innerText;
+    
+    // Tampilkan loading
+    content.innerHTML = `
+      <div class="modal-icon">⏳</div>
+      <div class="modal-title">Memverifikasi Dokumen...</div>
+      <div class="modal-message">Menghubungkan ke blockchain DJBC. Harap tunggu.</div>
+    `;
+    modal.style.display = 'flex';
+    
+    // Simulasi proses (2 detik)
+    setTimeout(() => {
+      // Hash valid → sukses
+      content.innerHTML = `
+        <div class="modal-icon modal-success">✅</div>
+        <div class="modal-title">VERIFIKASI BERHASIL</div>
+        <div class="modal-message">
+          Dokumen dengan hash:<br>
+          <strong>${hash}</strong><br>
+          telah terverifikasi di blockchain DJBC.<br>
+          Status: <strong>AUTHENTIC & VALID</strong>
+        </div>
+        <button class="close-btn">Tutup</button>
+      `;
+      document.querySelector('.close-btn').onclick = () => modal.style.display = 'none';
+    }, 2000);
+  });
+
+  // Tutup modal jika klik di luar
+  window.onclick = function(event) {
+    const modal = document.getElementById('verificationModal');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
 </script>
 
 </body>
