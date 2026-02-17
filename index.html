@@ -9,176 +9,84 @@
   <title>Surat Pemberitahuan Resmi - Andi Murgan</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
   <style>
-    /* CSS STYLE ORIGINAL */
+    /* STYLE SAMA DENGAN DI ATAS UNTUK KONSISTENSI */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Times New Roman', Times, serif; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%); min-height: 100vh; padding: 30px 20px; color: #000; }
+    body { font-family: 'Times New Roman', Times, serif; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%); min-height: 100vh; padding: 30px 20px; }
     .outer-wrapper { max-width: 900px; margin: 0 auto; background: white; padding: 8px; border-radius: 12px; box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3); }
     .letter-container { background: white; padding: 50px; border: 3px double #003366; border-radius: 8px; position: relative; animation: fadeIn 0.8s ease-out; }
-    .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 120px; color: rgba(0, 51, 102, 0.03); font-weight: bold; pointer-events: none; z-index: 0; white-space: nowrap; }
-    .content-wrapper { position: relative; z-index: 1; }
-    .header { text-align: center; margin-bottom: 35px; padding-bottom: 20px; border-bottom: 4px solid #003366; }
-    .logo-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 30px; }
-    .logo-box { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .logo { width: 80px; height: 80px; border: 2px solid #003366; border-radius: 50%; padding: 6px; background: white; box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2); object-fit: contain; }
-    .logo-label { font-size: 10px; font-weight: bold; color: #003366; text-transform: uppercase; letter-spacing: 0.5px; }
-    .title { font-size: 18px; font-weight: bold; margin: 15px 0 8px; color: #003366; letter-spacing: 1px; line-height: 1.4; }
-    .subtitle { font-size: 15px; font-weight: 600; color: #555; margin-bottom: 15px; line-height: 1.5; }
-    .divider { width: 100%; height: 3px; background: linear-gradient(to right, transparent, #003366, transparent); margin: 20px 0; }
-    .ref-number { text-align: right; font-style: italic; font-size: 14px; color: #003366; font-weight: 600; margin-bottom: 25px; padding: 8px 15px; background: #f0f8ff; border-left: 4px solid #003366; display: inline-block; float: right; border-radius: 4px; }
-    .content { line-height: 1.9; margin-bottom: 30px; font-size: 15px; clear: both; text-align: justify; }
-    .content p { margin-bottom: 15px; }
-    .recipient { margin: 25px 0; padding: 15px; background: #f9f9f9; border-left: 4px solid #003366; border-radius: 4px; }
-    .recipient strong { font-size: 16px; color: #003366; }
-    .greeting { margin: 20px 0; font-weight: 600; }
-    .highlight { background: linear-gradient(135deg, #f0f8ff 0%, #e3f2fd 100%); padding: 20px; border-left: 5px solid #003366; margin: 20px 0; border-radius: 6px; box-shadow: 0 3px 10px rgba(0, 51, 102, 0.1); line-height: 1.8; }
-    .data-table { width: 100%; margin: 15px 0; }
-    .data-table td { padding: 8px 5px; vertical-align: top; }
-    .data-table td:first-child { font-weight: 700; color: #003366; width: 160px; }
-    .data-table td:nth-child(2) { width: 20px; font-weight: 700; }
-    .calculation-box { background: linear-gradient(135deg, #fff3cd 0%, #fffadc 100%); padding: 20px; border-left: 5px solid #ffc107; margin: 20px 0; border-radius: 6px; box-shadow: 0 3px 10px rgba(255, 193, 7, 0.2); font-weight: 600; line-height: 1.8; }
-    .calculation-box strong { color: #c62828; font-size: 16px; }
-    .warning-box { background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%); padding: 20px; border: 2px solid #c62828; margin: 20px 0; border-radius: 6px; box-shadow: 0 3px 10px rgba(198, 40, 40, 0.15); text-align: center; font-weight: 600; color: #c62828; }
-    .legal-reference { background: #f5f5f5; padding: 15px; border-left: 4px solid #666; margin: 20px 0; font-size: 14px; font-style: italic; border-radius: 4px; }
-    .footer { margin-top: 50px; display: flex; justify-content: space-between; align-items: flex-start; position: relative; min-height: 200px; }
-    .signature-section { width: 45%; }
-    .signature-section p { margin-bottom: 8px; line-height: 1.6; }
-    .signature-date { font-weight: 600; margin-bottom: 5px; }
-    .signature-title { font-size: 14px; margin: 10px 0; line-height: 1.5; }
-    .signature-box { margin: 30px 0 15px; height: 80px; display: flex; align-items: center; }
-    .signature-img { height: 100%; object-fit: contain; }
-    .nip { font-weight: 700; font-size: 14px; margin-top: 10px; }
-    .barcode-container { text-align: center; margin-top: 40px; padding: 25px; background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%); border-radius: 8px; border: 2px dashed #003366; }
-    .barcode-title { font-weight: 700; color: #003366; margin-bottom: 15px; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
-    .barcode { display: inline-block; background: white; padding: 15px; border-radius: 6px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); }
-    .important-notice { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 20px; border-left: 5px solid #4caf50; margin: 25px 0; border-radius: 6px; font-weight: 600; text-align: center; box-shadow: 0 3px 10px rgba(76, 175, 80, 0.2); }
-    .document-footer { margin-top: 40px; padding-top: 20px; border-top: 3px double #003366; text-align: center; font-size: 12px; color: #666; line-height: 1.8; }
-    
-    @media (max-width: 768px) {
-      .letter-container { padding: 30px 20px; }
-      .logo-row { padding: 0 10px; }
-      .logo { width: 60px; height: 60px; }
-      .footer { flex-direction: column; gap: 30px; }
-      .signature-section { width: 100%; }
-      .watermark { font-size: 60px; }
-    }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 120px; color: rgba(0, 51, 102, 0.03); font-weight: bold; pointer-events: none; z-index: 0; }
+    .header { text-align: center; margin-bottom: 35px; border-bottom: 4px solid #003366; padding-bottom: 20px; }
+    .logo-row { display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
+    .logo { width: 80px; height: 80px; border: 2px solid #003366; border-radius: 50%; padding: 6px; }
+    .title { font-size: 18px; font-weight: bold; color: #003366; }
+    .highlight { background: #f0f8ff; padding: 20px; border-left: 5px solid #003366; margin: 20px 0; border-radius: 6px; }
+    .calculation-box { background: #fff3cd; padding: 20px; border-left: 5px solid #ffc107; margin: 20px 0; border-radius: 6px; font-weight: 600; }
+    .warning-box { background: #fff5f5; padding: 20px; border: 2px solid #c62828; margin: 20px 0; text-align: center; color: #c62828; font-weight: bold; }
+    .footer { margin-top: 50px; display: flex; justify-content: space-between; }
+    .barcode-container { text-align: center; margin-top: 40px; border: 2px dashed #003366; padding: 20px; border-radius: 8px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; } }
+    @media (max-width: 768px) { .footer { flex-direction: column; } }
   </style>
 </head>
 <body>
   <div class="outer-wrapper">
     <div class="letter-container">
       <div class="watermark">DOKUMEN RESMI</div>
-      <div class="content-wrapper">
-        <div class="header">
+      <div class="header">
           <div class="logo-row">
-            <div class="logo-box">
-              <img src="https://i.ibb.co.com/B5vW6dPr/IMG-20260129-202143.jpg" alt="Logo Bea Cukai" class="logo">
-              <div class="logo-label">Bea Cukai RI</div>
-            </div>
-            <div style="flex: 1; text-align: center;">
-              <div class="title">
-                KEMENTERIAN KEUANGAN REPUBLIK INDONESIA<br>
-                DIREKTORAT JENDERAL BEA DAN CUKAI
-              </div>
-              <div class="subtitle">
-                KANTOR WILAYAH SULAWESI BAGIAN BARAT<br>
-                Telepon (0422) 211234 | Laman: www.beacukai.go.id
-              </div>
-            </div>
-            <div class="logo-box">
-              <img src="https://i.ibb.co.com/5NRRdf5/IMG-20260129-202430.jpg" alt="Logo SICEPAT" class="logo">
-              <div class="logo-label">SiCepat Ekspres</div>
-            </div>
+            <img src="https://i.ibb.co.com/B5vW6dPr/IMG-20260129-202143.jpg" alt="Logo" class="logo">
+            <div class="title">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA<br>DIREKTORAT JENDERAL BEA DAN CUKAI</div>
+            <img src="https://i.ibb.co.com/5NRRdf5/IMG-20260129-202430.jpg" alt="Logo" class="logo">
           </div>
-        </div>
-        <div class="divider"></div>
-        <div class="ref-number">Nomor: BC-2671/JAMS/SULBAR/0173/2026</div>
-
-        <div class="content">
-          <div class="recipient">
-            <p>Kepada Yth.<br>
-            <strong>Sdr/i. Andi Murgan</strong><br>
-            Toko Balanipa, Dusun Kawero, Majene</p>
+      </div>
+      
+      <div class="content">
+          <div style="background:#f9f9f9; padding:15px; border-left:4px solid #003366; margin-bottom:20px;">
+            Kepada Yth.<br><strong>Sdr/i. Andi Murgan</strong><br>Toko Balanipa, Dusun Kawero, Majene, Sulbar
           </div>
 
-          <p class="greeting">Dengan hormat,</p>
-          <p>Sehubungan dengan hasil pemeriksaan dan verifikasi terhadap paket kiriman yang masuk melalui jalur transit dari <strong>Jawa Timur</strong> menuju <strong>Sulawesi Barat</strong>, dengan rincian data sebagai berikut:</p>
+          <p>Berdasarkan hasil pemindaian paket dengan No. Resi <strong>001776543431</strong>, ditemukan komoditi kena cukai sebagai berikut:</p>
 
           <div class="highlight">
-            <table class="data-table">
-              <tr><td><strong>Nomor Resi</strong></td><td>:</td><td>001776543431</td></tr>
-              <tr><td><strong>Ekspedisi</strong></td><td>:</td><td>SiCepat Ekspres</td></tr>
-              <tr><td><strong>Nama Penerima</strong></td><td>:</td><td>Andi Murgan</td></tr>
-              <tr><td><strong>Nomor HP</strong></td><td>:</td><td>0853-9412-8788</td></tr>
-              <tr><td><strong>Alamat Tujuan</strong></td><td>:</td><td>Toko Balanipa, Dusun Kawero, Desa Bababulo Utara, Kec. Pamboang, Kab. Majene, Sulawesi Barat, 91452.</td></tr>
-              <tr><td><strong>Isi Kiriman</strong></td><td>:</td><td><strong style="color: #c62828;">5 Slop / 1.000 Batang Rokok (Tanpa Pita Cukai)</strong></td></tr>
-            </table>
+            <p>• Isi Paket: <strong>5 Slop / 1.000 Batang Rokok</strong></p>
+            <p>• Pelanggaran: Tidak dilengkapi pita cukai resmi (Polos)</p>
           </div>
-
-          <div class="legal-reference">
-            📋 <strong>Dasar Hukum:</strong> Berdasarkan ketentuan Pasal 29 Undang-Undang Nomor 11 Tahun 1995 tentang Cukai, barang tersebut dinyatakan sebagai <strong>barang kena cukai ilegal</strong> dan dikenakan sanksi administratif.
-          </div>
-
-          <p>Dengan ini kami informasikan bahwa terhadap kiriman tersebut dikenakan <strong>JAMINAN SEMENTARA</strong> dengan perhitungan sanksi 1× nilai pita cukai:</p>
 
           <div class="calculation-box">
-            <strong>Rincian Perhitungan Sanksi Administrasi:</strong><br>
-            <div style="margin: 10px 0; padding-left: 20px;">
-              • Jumlah Barang: 1.000 Batang (5 Slop)<br>
-              • Tarif Sanksi: <strong>1× Nilai Pita Cukai</strong> (Rp 1.000/Btg)<br>
-              • Perhitungan: Rp 1.000 × 1.000 Batang<br>
-              • <strong style="border-bottom: 2px solid #000; padding: 2px 5px;">TOTAL JAMINAN: Rp 1.000.000,00</strong>
-            </div>
+            <strong>Rincian Jaminan (1× Nilai Pita Cukai):</strong><br>
+            • Jumlah: 1.000 Btg (5 Slop)<br>
+            • Tarif Sanksi: Rp 1.000 / Btg<br>
+            • Kalkulasi: Rp 1.000 × 1.000 Btg<br>
+            • <strong>TOTAL JAMINAN: Rp 1.000.000,00</strong>
           </div>
 
-          <div class="important-notice">✓ SKEMA REFUND JAMINAN SEMENTARA ✓</div>
-
-          <p>Sesuai regulasi, dana jaminan ini akan dikembalikan (Refund) setelah proses verifikasi selesai dengan rincian:</p>
-
-          <div class="calculation-box" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left-color: #4caf50;">
-            <strong style="color: #2e7d32;">Rincian Pengembalian Dana (Refund):</strong><br>
-            <div style="margin: 10px 0; padding-left: 20px;">
-              • Total Jaminan: Rp 1.000.000,00<br>
-              • Persentase Refund: <strong>75%</strong> (Dikembalikan)<br>
-              • Biaya Administrasi Legal (25%): Rp 250.000,00<br>
-              • <strong style="color: #2e7d32; font-size: 18px; border-bottom: 2px solid #2e7d32; padding: 2px 5px;">TOTAL REFUND: Rp 750.000,00</strong>
-            </div>
+          <div style="background:#e8f5e9; padding:20px; border-left:5px solid #4caf50; border-radius:6px; margin:20px 0;">
+            <strong style="color: #2e7d32;">Informasi Refund Dana (75%):</strong><br>
+            • Dana Jaminan: Rp 1.000.000,00<br>
+            • Kebijakan Refund: 75%<br>
+            • <strong style="color: #2e7d32; font-size:18px;">TOTAL DANA REFUND: Rp 750.000,00</strong>
           </div>
 
-          <div class="warning-box">
-            ⚠️ BATAS WAKTU: 1×24 JAM ⚠️<br>
-            Harap segera menyelesaikan administrasi sebelum barang disita negara.
+          <div class="warning-box">PERINGATAN: Batas waktu penyelesaian adalah 1x24 Jam.</div>
+      </div>
+
+      <div class="footer">
+        <div>
+          <p><strong>Selasa, 17 Februari 2026</strong></p>
+          <p>Kepala Seksi Penindakan,</p>
+          <div style="height:80px; margin:20px 0;">
+            <img src="https://i.ibb.co.com/fGqwXhMb/1000014472-11zon.jpg" alt="Sign" style="height:100%;">
           </div>
+          <p><strong>Budi Santoso, S.E.</strong><br>NIP. 19750312 200312 1 004</p>
         </div>
+        <div style="text-align:center;">
+           <img src="https://i.ibb.co.com/s9Z7xhSG/IMG-20260129-201542.jpg" alt="Verified" style="width:100px;">
+           <p style="color:#2e7d32; font-weight:bold;">SISTEM TERVERIFIKASI</p>
+        </div>
+      </div>
 
-        <div class="footer">
-          <div class="signature-wrapper" style="display: flex; justify-content: space-between; gap: 30px; width: 100%;">
-            <div class="signature-section" style="width: 50%;">
-              <p class="signature-date">Selasa, 17 Februari 2026</p>
-              <p class="signature-title">KEPALA SEKSI PENINDAKAN<br>DAN PENYIDIKAN</p>
-              <div class="signature-box">
-                <img src="https://i.ibb.co.com/fGqwXhMb/1000014472-11zon.jpg" alt="Tanda Tangan" class="signature-img">
-              </div>
-              <p class="name" style="font-weight: 700; font-size: 15px; margin-top: 8px;">Budi Santoso, S.E.</p>
-              <p class="nip">NIP. 19750312 200312 1 004</p>
-            </div>
-            <div class="verification-badge" style="width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-               <img src="https://i.ibb.co.com/s9Z7xhSG/IMG-20260129-201542.jpg" alt="Verified" style="width: 80px;">
-               <div style="font-weight:bold; color:#2e7d32; margin-top:5px;">TERVERIFIKASI</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="barcode-container">
-          <div class="barcode-title">⬛ KODE AKSES: 001776543431-AND ⬛</div>
-          <svg class="barcode" jsbarcode-value="BC-001776543431-LEGAL" jsbarcode-format="CODE128" jsbarcode-display-value="false" jsbarcode-height="50"></svg>
-          <div class="barcode-instruction" style="margin-top: 10px;">Gunakan kode resi ini untuk konfirmasi pembayaran legalisasi.</div>
-        </div>
-
-        <div class="document-footer">
-          <strong>Dokumen ini sah dan diterbitkan oleh Sistem DJBC</strong><br>
-          <em>Hubungi Call Center Kami untuk Proses Penyelesaian.</em>
-        </div>
+      <div class="barcode-container">
+        <svg class="barcode" jsbarcode-value="BC-001776543431-AND" jsbarcode-format="CODE128"></svg>
       </div>
     </div>
   </div>
