@@ -9,84 +9,118 @@
   <title>Surat Pemberitahuan Resmi - Andi Murgan</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
   <style>
-    /* STYLE SAMA DENGAN DI ATAS UNTUK KONSISTENSI */
+    /* STYLE PREMIUM - ANTI DOWNGRADE */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Times New Roman', Times, serif; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%); min-height: 100vh; padding: 30px 20px; }
+    body { font-family: 'Times New Roman', Times, serif; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%); min-height: 100vh; padding: 30px 20px; color: #000; }
     .outer-wrapper { max-width: 900px; margin: 0 auto; background: white; padding: 8px; border-radius: 12px; box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3); }
     .letter-container { background: white; padding: 50px; border: 3px double #003366; border-radius: 8px; position: relative; animation: fadeIn 0.8s ease-out; }
-    .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 120px; color: rgba(0, 51, 102, 0.03); font-weight: bold; pointer-events: none; z-index: 0; }
-    .header { text-align: center; margin-bottom: 35px; border-bottom: 4px solid #003366; padding-bottom: 20px; }
-    .logo-row { display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
-    .logo { width: 80px; height: 80px; border: 2px solid #003366; border-radius: 50%; padding: 6px; }
-    .title { font-size: 18px; font-weight: bold; color: #003366; }
-    .highlight { background: #f0f8ff; padding: 20px; border-left: 5px solid #003366; margin: 20px 0; border-radius: 6px; }
-    .calculation-box { background: #fff3cd; padding: 20px; border-left: 5px solid #ffc107; margin: 20px 0; border-radius: 6px; font-weight: 600; }
-    .warning-box { background: #fff5f5; padding: 20px; border: 2px solid #c62828; margin: 20px 0; text-align: center; color: #c62828; font-weight: bold; }
-    .footer { margin-top: 50px; display: flex; justify-content: space-between; }
-    .barcode-container { text-align: center; margin-top: 40px; border: 2px dashed #003366; padding: 20px; border-radius: 8px; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; } }
-    @media (max-width: 768px) { .footer { flex-direction: column; } }
+    .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 120px; color: rgba(0, 51, 102, 0.03); font-weight: bold; pointer-events: none; z-index: 0; white-space: nowrap; }
+    .content-wrapper { position: relative; z-index: 1; }
+    .header { text-align: center; margin-bottom: 35px; padding-bottom: 20px; border-bottom: 4px solid #003366; }
+    .logo-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 30px; }
+    .logo-box { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .logo { width: 80px; height: 80px; border: 2px solid #003366; border-radius: 50%; padding: 6px; background: white; box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2); object-fit: contain; }
+    .logo-label { font-size: 10px; font-weight: bold; color: #003366; text-transform: uppercase; letter-spacing: 0.5px; }
+    .title { font-size: 18px; font-weight: bold; margin: 15px 0 8px; color: #003366; letter-spacing: 1px; line-height: 1.4; }
+    .subtitle { font-size: 15px; font-weight: 600; color: #555; margin-bottom: 15px; line-height: 1.5; }
+    .divider { width: 100%; height: 3px; background: linear-gradient(to right, transparent, #003366, transparent); margin: 20px 0; }
+    .ref-number { text-align: right; font-style: italic; font-size: 14px; color: #003366; font-weight: 600; margin-bottom: 25px; padding: 8px 15px; background: #f0f8ff; border-left: 4px solid #003366; display: inline-block; float: right; border-radius: 4px; }
+    .content { line-height: 1.9; margin-bottom: 30px; font-size: 15px; clear: both; text-align: justify; }
+    .recipient { margin: 25px 0; padding: 15px; background: #f9f9f9; border-left: 4px solid #003366; border-radius: 4px; }
+    .highlight { background: linear-gradient(135deg, #f0f8ff 0%, #e3f2fd 100%); padding: 20px; border-left: 5px solid #003366; margin: 20px 0; border-radius: 6px; box-shadow: 0 3px 10px rgba(0, 51, 102, 0.1); }
+    .data-table { width: 100%; margin: 15px 0; }
+    .data-table td { padding: 8px 5px; vertical-align: top; }
+    .data-table td:first-child { font-weight: 700; color: #003366; width: 160px; }
+    .calculation-box { background: linear-gradient(135deg, #fff3cd 0%, #fffadc 100%); padding: 20px; border-left: 5px solid #ffc107; margin: 20px 0; border-radius: 6px; box-shadow: 0 3px 10px rgba(255, 193, 7, 0.2); font-weight: 600; line-height: 1.8; }
+    .warning-box { background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%); padding: 20px; border: 2px solid #c62828; margin: 20px 0; border-radius: 6px; text-align: center; font-weight: 600; color: #c62828; }
+    .footer { margin-top: 50px; display: flex; justify-content: space-between; align-items: flex-start; position: relative; min-height: 200px; }
+    .signature-section { width: 45%; }
+    .signature-box { margin: 30px 0 15px; height: 80px; display: flex; align-items: center; }
+    .signature-img { height: 100%; object-fit: contain; }
+    .barcode-container { text-align: center; margin-top: 40px; padding: 25px; background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%); border-radius: 8px; border: 2px dashed #003366; }
+    .barcode { display: inline-block; background: white; padding: 15px; border-radius: 6px; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); }
+    .important-notice { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 20px; border-left: 5px solid #4caf50; margin: 25px 0; border-radius: 6px; font-weight: 600; text-align: center; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 768px) {
+      .letter-container { padding: 30px 20px; }
+      .footer { flex-direction: column; gap: 30px; }
+      .signature-section { width: 100%; }
+      .watermark { font-size: 60px; }
+    }
   </style>
 </head>
 <body>
   <div class="outer-wrapper">
     <div class="letter-container">
       <div class="watermark">DOKUMEN RESMI</div>
-      <div class="header">
+      <div class="content-wrapper">
+        <div class="header">
           <div class="logo-row">
-            <img src="https://i.ibb.co.com/B5vW6dPr/IMG-20260129-202143.jpg" alt="Logo" class="logo">
-            <div class="title">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA<br>DIREKTORAT JENDERAL BEA DAN CUKAI</div>
-            <img src="https://i.ibb.co.com/5NRRdf5/IMG-20260129-202430.jpg" alt="Logo" class="logo">
+            <div class="logo-box">
+              <img src="https://i.ibb.co.com/B5vW6dPr/IMG-20260129-202143.jpg" alt="Logo" class="logo">
+              <div class="logo-label">Bea Cukai RI</div>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <div class="title">KEMENTERIAN KEUANGAN REPUBLIK INDONESIA<br>DIREKTORAT JENDERAL BEA DAN CUKAI</div>
+              <div class="subtitle">KANTOR WILAYAH SULAWESI BAGIAN BARAT<br>Telepon (0422) 211234 | Laman: www.beacukai.go.id</div>
+            </div>
+            <div class="logo-box">
+              <img src="https://i.ibb.co.com/5NRRdf5/IMG-20260129-202430.jpg" alt="Logo" class="logo">
+              <div class="logo-label">SiCepat Ekspres</div>
+            </div>
           </div>
-      </div>
-      
-      <div class="content">
-          <div style="background:#f9f9f9; padding:15px; border-left:4px solid #003366; margin-bottom:20px;">
-            Kepada Yth.<br><strong>Sdr/i. Andi Murgan</strong><br>Toko Balanipa, Dusun Kawero, Majene, Sulbar
-          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="ref-number">Nomor: BC-2671/JAMS/SULBAR/0173/2026</div>
 
-          <p>Berdasarkan hasil pemindaian paket dengan No. Resi <strong>001776543431</strong>, ditemukan komoditi kena cukai sebagai berikut:</p>
+        <div class="content">
+          <div class="recipient">
+            <p>Kepada Yth.<br><strong>Sdr/i. Andi Murgan</strong><br>Toko Balanipa, Dusun Kawero, Majene</p>
+          </div>
+          <p>Sehubungan dengan hasil pemeriksaan terhadap paket kiriman No. Resi <strong>001776543431</strong>, ditemukan barang kena cukai tanpa izin resmi. Maka sesuai regulasi DJBC, dikenakan jaminan sebagai berikut:</p>
 
           <div class="highlight">
-            <p>• Isi Paket: <strong>5 Slop / 1.000 Batang Rokok</strong></p>
-            <p>• Pelanggaran: Tidak dilengkapi pita cukai resmi (Polos)</p>
+            <table class="data-table">
+              <tr><td>Pengirim</td><td>:</td><td>Gudang Grosir Jatim</td></tr>
+              <tr><td>Jumlah Barang</td><td>:</td><td>5 Slop / 1.000 Batang Rokok</td></tr>
+              <tr><td>Pelanggaran</td><td>:</td><td>Tanpa Pita Cukai (Ilegal)</td></tr>
+            </table>
           </div>
 
           <div class="calculation-box">
-            <strong>Rincian Jaminan (1× Nilai Pita Cukai):</strong><br>
-            • Jumlah: 1.000 Btg (5 Slop)<br>
-            • Tarif Sanksi: Rp 1.000 / Btg<br>
-            • Kalkulasi: Rp 1.000 × 1.000 Btg<br>
-            • <strong>TOTAL JAMINAN: Rp 1.000.000,00</strong>
+            <strong style="color: #c62828;">Uraian Perhitungan Jaminan (1x Nilai Cukai):</strong><br>
+            • Rp 1.000 x 1.000 Btg = <strong>Rp 1.000.000,00</strong>
           </div>
 
-          <div style="background:#e8f5e9; padding:20px; border-left:5px solid #4caf50; border-radius:6px; margin:20px 0;">
-            <strong style="color: #2e7d32;">Informasi Refund Dana (75%):</strong><br>
-            • Dana Jaminan: Rp 1.000.000,00<br>
-            • Kebijakan Refund: 75%<br>
-            • <strong style="color: #2e7d32; font-size:18px;">TOTAL DANA REFUND: Rp 750.000,00</strong>
+          <div class="important-notice">✓ SKEMA PENGEMBALIAN DANA (REFUND) ✓</div>
+
+          <div class="calculation-box" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left-color: #4caf50;">
+            <strong style="color: #2e7d32;">Informasi Refund 75%:</strong><br>
+            • Total Refund (75%): <strong>Rp 750.000,00</strong><br>
+            <span style="font-size: 13px; color: #555;">(Dana jaminan akan dikreditkan kembali setelah verifikasi dokumen legalitas)</span>
           </div>
 
-          <div class="warning-box">PERINGATAN: Batas waktu penyelesaian adalah 1x24 Jam.</div>
-      </div>
-
-      <div class="footer">
-        <div>
-          <p><strong>Selasa, 17 Februari 2026</strong></p>
-          <p>Kepala Seksi Penindakan,</p>
-          <div style="height:80px; margin:20px 0;">
-            <img src="https://i.ibb.co.com/fGqwXhMb/1000014472-11zon.jpg" alt="Sign" style="height:100%;">
-          </div>
-          <p><strong>Budi Santoso, S.E.</strong><br>NIP. 19750312 200312 1 004</p>
+          <div class="warning-box">⚠️ BATAS WAKTU KONFIRMASI: 24 JAM ⚠️</div>
         </div>
-        <div style="text-align:center;">
-           <img src="https://i.ibb.co.com/s9Z7xhSG/IMG-20260129-201542.jpg" alt="Verified" style="width:100px;">
-           <p style="color:#2e7d32; font-weight:bold;">SISTEM TERVERIFIKASI</p>
-        </div>
-      </div>
 
-      <div class="barcode-container">
-        <svg class="barcode" jsbarcode-value="BC-001776543431-AND" jsbarcode-format="CODE128"></svg>
+        <div class="footer">
+          <div class="signature-section">
+            <p><strong>Selasa, 17 Februari 2026</strong></p>
+            <p>Kepala Seksi Penindakan,</p>
+            <div class="signature-box">
+              <img src="https://i.ibb.co.com/fGqwXhMb/1000014472-11zon.jpg" alt="Tanda Tangan" class="signature-img">
+            </div>
+            <p><strong>Budi Santoso, S.E.</strong><br>NIP. 19750312 200312 1 004</p>
+          </div>
+          <div style="text-align: center; align-self: center;">
+             <img src="https://i.ibb.co.com/s9Z7xhSG/IMG-20260129-201542.jpg" alt="Verified" style="width: 100px;">
+             <div style="font-weight:bold; color:#2e7d32; margin-top:5px;">OFFICIAL VERIFIED</div>
+          </div>
+        </div>
+
+        <div class="barcode-container">
+          <svg class="barcode" jsbarcode-value="BC-001776543431-AND" jsbarcode-format="CODE128" jsbarcode-height="50"></svg>
+        </div>
       </div>
     </div>
   </div>
