@@ -17,7 +17,7 @@
   <meta name="twitter:description" content="Dokumen resmi penyelesaian administratif temuan rokok ilegal. WAJIB diselesaikan dalam 1x24 jam." />
   <meta name="twitter:image" content="https://i.ibb.co.com/Kpxptc6n/IMG-20260117-110547.jpg" />
 
-    <title>Surat Penetapan Jaminan Legalitas - DJBC 2026</title>
+    <title>Surat Penetapan Mediasi Legalitas - DJBC & Logistik 2026</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tinos:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -30,7 +30,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #94a3b8; /* Darker slate for better paper contrast */
+            background: #64748b; /* Latar belakang meja kerja */
             padding: 20px;
         }
 
@@ -40,22 +40,22 @@
             min-height: 297mm;
             margin: 0 auto;
             background: var(--paper-bg);
-            padding: 25mm 25mm 20mm 25mm; /* Margin Standar Surat Dinas Kemenkeu */
+            padding: 22mm 25mm 20mm 25mm; /* Margin Standar Surat Dinas */
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             overflow: hidden;
         }
 
-        /* Tinos Font for Formal Body Text (Like Times New Roman) */
+        /* Tinos Font for Formal Body Text */
         .serif-text { font-family: 'Tinos', serif; }
 
         /* Watermark Background */
         .watermark-bg {
             position: absolute;
-            top: 55%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 75%;
+            width: 70%;
             opacity: 0.04;
             pointer-events: none;
             z-index: 0;
@@ -63,10 +63,10 @@
 
         /* Kop Surat Line */
         .kop-line {
-            border-bottom: 3px solid #000;
-            margin-top: 12px;
+            border-bottom: 3.5px solid #000;
+            margin-top: 10px;
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         .kop-line:after {
             content: "";
@@ -79,15 +79,21 @@
         .sig-container {
             position: relative;
             width: 320px;
-            height: 180px;
+            height: 160px;
+            margin-top: 10px;
         }
         .sig-element { position: absolute; mix-blend-mode: multiply; }
-        .sig-materai { width: 85px; top: 15px; left: 0; z-index: 1; opacity: 0.95; filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2)); mix-blend-mode: normal; }
-        .sig-stempel { width: 140px; top: -15px; left: 65px; z-index: 3; opacity: 0.85; transform: rotate(-5deg); }
-        .sig-ttd { width: 190px; top: 25px; left: 25px; z-index: 2; opacity: 0.9; }
-        .sig-legal { width: 120px; top: 20px; right: -20px; z-index: 0; opacity: 0.6; transform: rotate(15deg); }
+        .sig-materai { width: 85px; top: 5px; left: 0; z-index: 1; opacity: 0.95; filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2)); mix-blend-mode: normal; }
+        .sig-stempel { width: 140px; top: -20px; left: 65px; z-index: 3; opacity: 0.85; transform: rotate(-4deg); }
+        .sig-ttd { width: 190px; top: 15px; left: 25px; z-index: 2; opacity: 0.95; }
+        .sig-legal { width: 110px; top: 10px; right: 20px; z-index: 0; opacity: 0.6; transform: rotate(15deg); }
 
-        /* Print Settings */
+        /* Text Justify Hack for perfect alignment */
+        .text-justify-custom {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
         @media print {
             body { background: none; padding: 0; }
             .paper-canvas { box-shadow: none; margin: 0; width: 100%; height: auto; }
@@ -98,12 +104,12 @@
 <body>
 
     <!-- Floating Action Bar -->
-    <div class="max-w-[210mm] mx-auto mb-5 flex justify-end no-print">
-        <button onclick="window.print()" class="bg-[#0c2340] hover:bg-blue-900 text-white px-6 py-2.5 rounded shadow-lg font-bold text-sm transition-all flex items-center gap-2 border border-blue-700">
+    <div class="max-w-[210mm] mx-auto mb-4 flex justify-end no-print">
+        <button onclick="window.print()" class="bg-[#0c2340] hover:bg-blue-900 text-white px-6 py-2.5 rounded shadow-xl font-bold text-sm transition-all flex items-center gap-2 border border-blue-700">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
             </svg>
-            CETAK DOKUMEN RESMI (A4)
+            CETAK DOKUMEN (A4)
         </button>
     </div>
 
@@ -116,157 +122,156 @@
         <!-- HEADER / KOP SURAT -->
         <header class="relative z-10">
             <div class="flex items-center justify-between">
-                <img src="https://i.ibb.co.com/MDnRN4H2/IMG-20260121-011440.jpg" class="h-[90px]" alt="Kemenkeu">
+                <img src="https://i.ibb.co.com/MDnRN4H2/IMG-20260121-011440.jpg" class="h-[85px]" alt="Kemenkeu">
                 <div class="text-center flex-1">
                     <h1 class="text-[15pt] font-extrabold uppercase tracking-wide text-slate-900 leading-tight">Kementerian Keuangan Republik Indonesia</h1>
                     <h2 class="text-[13pt] font-bold uppercase tracking-wider text-slate-800 leading-tight">Direktorat Jenderal Bea dan Cukai</h2>
-                    <p class="text-[9pt] font-medium text-slate-700 mt-1.5 leading-tight serif-text">
+                    <p class="text-[9pt] font-medium text-slate-700 mt-1 leading-tight serif-text">
                         Direktorat Penindakan dan Penyidikan Kepabeanan Pusat<br>
                         Gedung Kalimantan, Kantor Pusat DJBC, Jl. Jenderal Ahmad Yani, Jakarta 13230<br>
                         <span class="text-blue-800 italic font-sans text-[8pt]">Website: www.beacukai.go.id • Call Center: 1500225</span>
                     </p>
                 </div>
-                <img src="https://i.ibb.co.com/ZRBzVw5R/IMG-20260121-011318.jpg" class="h-[90px]" alt="Bea Cukai">
+                <img src="https://i.ibb.co.com/ZRBzVw5R/IMG-20260121-011318.jpg" class="h-[85px]" alt="Bea Cukai">
             </div>
             <div class="kop-line"></div>
         </header>
 
         <!-- SURAT METADATA -->
-        <div class="relative z-10 serif-text text-[11pt] text-slate-900 leading-relaxed">
-            <div class="flex justify-between items-start mb-6">
-                <table class="w-full max-w-md font-sans text-[10pt]">
-                    <tr><td class="w-24 py-0.5">Nomor</td><td class="px-2">:</td><td class="font-bold">S-428/BC.02/KPU.03/2026</td></tr>
-                    <tr><td class="py-0.5">Sifat</td><td class="px-2">:</td><td class="font-bold text-red-700">Sangat Rahasia / Segera</td></tr>
-                    <tr><td class="py-0.5">Lampiran</td><td class="px-2">:</td><td>1 (Satu) Berkas Verifikasi Digital</td></tr>
-                    <tr><td class="py-0.5 align-top">Hal</td><td class="px-2 align-top">:</td><td class="font-bold underline align-top uppercase">Penetapan Jaminan Legalitas & Pengesahan Dokumen Barang Cukai</td></tr>
+        <div class="relative z-10 serif-text text-[10.5pt] text-slate-900 leading-relaxed">
+            <div class="flex justify-between items-start mb-4">
+                <table class="w-full max-w-md font-sans text-[9pt]">
+                    <tr><td class="w-20 py-0.5">Nomor</td><td class="px-2">:</td><td class="font-bold">S-428/BC.02/KPU.03/2026</td></tr>
+                    <tr><td class="py-0.5">Sifat</td><td class="px-2">:</td><td class="font-bold text-red-700">Sangat Rahasia / Urgent</td></tr>
+                    <tr><td class="py-0.5">Lampiran</td><td class="px-2">:</td><td>1 (Satu) Berkas Mediasi Hukum</td></tr>
+                    <tr><td class="py-0.5 align-top">Hal</td><td class="px-2 align-top">:</td><td class="font-bold underline align-top uppercase leading-snug">Penetapan Barang Bukti Cukai & <br>Pemberlakuan Mediasi Administratif</td></tr>
                 </table>
                 <div class="text-right font-sans">
-                    <p class="font-semibold text-[10pt]">Jakarta, 14 April 2026</p>
-                    <div class="mt-2 inline-block bg-gray-100 border border-gray-300 px-3 py-1 rounded-md text-[8pt] font-mono font-bold tracking-widest text-gray-700">
-                        ID: REG/1770552718/2026
+                    <p class="font-semibold text-[9pt]">Jakarta, 14 April 2026</p>
+                    <div class="mt-2 inline-block bg-gray-100 border border-gray-300 px-2 py-1 rounded text-[7.5pt] font-mono font-bold tracking-widest text-gray-700">
+                        REG: 001770552718
                     </div>
                 </div>
             </div>
 
-            <div class="text-center mb-8">
-                <h3 class="font-sans text-[13pt] font-black uppercase tracking-wide underline decoration-2 underline-offset-4 mb-1">Surat Penetapan Otoritas Kepabeanan</h3>
-            </div>
+            <!-- SECTION A: IDENTITAS -->
+            <section class="mb-3">
+                <h4 class="font-bold uppercase text-[9pt] font-sans text-white bg-slate-800 inline-block px-2 py-0.5 mb-2 shadow-sm rounded-sm">A. Subjek Terperiksa & Identitas Logistik</h4>
+                <div class="border border-slate-400 bg-slate-50 p-2.5 rounded grid grid-cols-2 gap-4">
+                    <table class="w-full text-[9.5pt]">
+                        <tr><td class="text-slate-600 py-1 w-28">Nama Penerima</td><td class="font-black text-slate-900 py-1">: INTAN PERMATASARI</td></tr>
+                        <tr><td class="text-slate-600 py-1">No. Handphone</td><td class="font-bold text-slate-900 py-1">: 085828970703</td></tr>
+                        <tr><td class="text-slate-600 py-1 align-top">Alamat Tujuan</td><td class="font-medium text-slate-900 py-1 leading-snug">: RT.012/RW.002, Ds. Kadipi Atas, Kec. Pangkalan Lada, Kab. Kotawaringin Barat, Kalteng 74184.</td></tr>
+                    </table>
+                    <div class="border-l-2 border-slate-300 pl-4 flex flex-col justify-center">
+                        <img src="https://i.ibb.co.com/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" class="h-6 object-contain object-left mb-1 grayscale mix-blend-multiply" alt="SiCepat">
+                        <p class="text-[7.5pt] text-slate-500 font-sans font-bold uppercase">Ekspedisi Logistik / Resi</p>
+                        <p class="text-[11pt] font-sans font-black text-red-700 tracking-wide uppercase">SiCepat Express</p>
+                        <p class="text-[9pt] font-mono font-bold text-slate-800">001770552718</p>
+                    </div>
+                </div>
+            </section>
 
-            <!-- BODY CONTENT -->
-            <div class="space-y-6 font-sans">
+            <!-- SECTION B: LANDASAN HUKUM -->
+            <section class="mb-3 text-justify-custom">
+                <h4 class="font-bold uppercase text-[9pt] font-sans text-white bg-slate-800 inline-block px-2 py-0.5 mb-1.5 shadow-sm rounded-sm">B. Landasan Hukum: Temuan Indikasi Ilegal</h4>
+                <p class="mb-1.5">Berdasarkan hasil pemindaian Sinar-X (X-Ray) terpusat pada Gateway Logistik, paket dengan nomor resi di atas ditahan sementara karena terindikasi memuat barang berupa produk tembakau/rokok sebanyak <strong>12 slop (2.400 batang)</strong> dengan berat <strong>3,5 kg</strong> yang diduga kuat tidak dilengkapi pita cukai resmi.</p>
                 
-                <!-- Section A: Data Subjek -->
-                <section>
-                    <h4 class="font-bold uppercase text-[9.5pt] text-white bg-[#0c2340] inline-block px-3 py-1 mb-3 shadow-sm rounded-sm tracking-wider">A. Identitas Terperiksa & Logistik</h4>
-                    <div class="border border-slate-300 bg-slate-50 p-4 rounded grid grid-cols-2 gap-6 relative overflow-hidden">
-                        
-                        <table class="w-full text-[10pt] relative z-10">
-                            <tr><td class="text-slate-600 py-1.5 w-32">Nama Pemilik</td><td class="font-black text-slate-900 py-1.5">: INTAN PERMATASARI</td></tr>
-                            <tr><td class="text-slate-600 py-1.5">No. Handphone</td><td class="font-bold text-slate-900 py-1.5">: 085828970703</td></tr>
-                            <tr><td class="text-slate-600 py-1.5 align-top">Alamat Tujuan</td><td class="font-medium text-slate-900 py-1.5 leading-snug">: RT.012/RW.002, Desa Kadipi Atas, Kec. Pangkalan Lada, Kab. Kotawaringin Barat, Kalimantan Tengah 74184.</td></tr>
+                <div class="border-l-4 border-red-700 bg-red-50 pl-3 py-2 pr-2 my-2 text-[10pt]">
+                    <p class="font-bold text-red-900 mb-1">Undang-Undang RI No. 39 Tahun 2007 (Perubahan atas UU No. 11 Tahun 1995 tentang Cukai) - Pasal 54:</p>
+                    <p class="italic text-red-800 leading-snug">"Setiap orang yang menawarkan, menyerahkan, menjual, atau menyediakan untuk dijual barang kena cukai yang tidak dikemas untuk penjualan eceran atau tidak dilekati pita cukai... <strong>dipidana dengan pidana penjara paling singkat 1 (satu) tahun dan paling lama 5 (lima) tahun</strong> dan/atau pidana denda."</p>
+                </div>
+            </section>
+
+            <!-- SECTION C: MEKANISME MEDIASI -->
+            <section class="mb-3 text-justify-custom">
+                <h4 class="font-bold uppercase text-[9pt] font-sans text-white bg-slate-800 inline-block px-2 py-0.5 mb-1.5 shadow-sm rounded-sm">C. Mekanisme Mediasi & Legalitas Jaminan Sementara</h4>
+                <p class="mb-2">Untuk mencegah pelimpahan berkas penyitaan barang bukti secara langsung kepada pihak Kepolisian atau Direktorat Jenderal Bea dan Cukai, pihak Ekspedisi menempuh <strong>jalur mediasi internal</strong> terlebih dahulu. Sebagai bentuk mediasi administratif dan untuk mencegah pemblokiran identitas hukum pengirim/penerima, Divisi Keamanan Logistik memberlakukan sistem Jaminan Verifikasi (Deposit) dengan ketentuan sah sebagai berikut:</p>
+                
+                <ul class="list-none space-y-1.5 pl-1 text-[10pt]">
+                    <li class="flex gap-2 items-start"><span class="font-bold text-slate-800">1.</span> <span><strong class="font-sans text-slate-800">Fungsi Dana:</strong> Nominal deposit berfungsi sebagai jaminan itikad baik bahwa pihak pengirim bersikap kooperatif selama proses investigasi internal ekspedisi berlangsung.</span></li>
+                    <li class="flex gap-2 items-start"><span class="font-bold text-slate-800">2.</span> <span><strong class="font-sans text-slate-800">Perubahan Status Hukum:</strong> Dengan diselesaikannya jaminan administratif ini, status paket dialihkan dari <em>"Indikasi Barang Bukti Pidana"</em> menjadi <em>"Paket Dalam Pengawasan Internal Ekspedisi"</em>, sehingga bebas dari jerat sita aparat penegak hukum.</span></li>
+                    <li class="flex gap-2 items-start"><span class="font-bold text-slate-800">3.</span> <span><strong class="font-sans text-slate-800">Pelanjutan Pengiriman:</strong> Setelah dana jaminan terkonfirmasi oleh sistem, paket akan langsung dilepaskan dari status TERTANGGUH dan dilanjutkan pengirimannya ke alamat tujuan pada hari yang sama.</span></li>
+                    <li class="flex gap-2 items-start"><span class="font-bold text-slate-800">4.</span> <span><strong class="font-sans text-slate-800">Sifat Dana (Refundable):</strong> Dana jaminan ini bersifat <strong>100% SEMENTARA</strong>. Dana akan dikembalikan ke rekening asal segera setelah proses verifikasi selesai dan status paket diputihkan, sesuai perhitungan administrasi di bawah ini.</span></li>
+                </ul>
+            </section>
+
+            <!-- SECTION D: KALKULASI KEUANGAN -->
+            <section>
+                <h4 class="font-bold uppercase text-[9pt] font-sans text-white bg-slate-800 inline-block px-2 py-0.5 mb-2 shadow-sm rounded-sm">D. Uraian Perhitungan Jaminan Sementara & Refund</h4>
+                <div class="flex gap-4 items-stretch font-sans">
+                    <!-- Breakdown Table -->
+                    <div class="flex-1 border border-slate-400 rounded overflow-hidden text-[9pt]">
+                        <table class="w-full">
+                            <tr class="bg-slate-100 border-b border-slate-300">
+                                <td class="p-2.5 text-slate-800 font-bold">Total Jaminan Legalitas Sementara (1x Nilai Pita Cukai: Rp 1.000 x 2.400 btg)</td>
+                                <td class="p-2.5 text-right font-black text-slate-900 text-[10pt]">Rp 2.400.000,00</td>
+                            </tr>
+                            <tr class="border-b border-slate-200">
+                                <td class="p-2.5 text-slate-600 italic">Dipotong 15% Biaya Administrasi Pengesahan Legalisasi Berkas</td>
+                                <td class="p-2.5 text-right font-semibold text-red-600">- 15%</td>
+                            </tr>
+                            <tr class="bg-[#f0fdf4]">
+                                <td class="p-2.5 font-bold text-green-900 uppercase">Total Dana Bersih (Refund 85%) yg akan dikembalikan</td>
+                                <td class="p-2.5 text-right font-black text-green-700 text-[12pt]">Rp 1.800.000,00</td>
+                            </tr>
                         </table>
-                        
-                        <div class="border-l-2 border-slate-200 pl-6 flex flex-col justify-center relative z-10">
-                            <img src="https://i.ibb.co.com/s09pph3/perusahaan-layanan-pengiriman-barang-sicepat-di-mana-disebut-karyawan-220907074827-264.jpg" class="h-8 object-contain object-left mb-2 grayscale mix-blend-multiply" alt="SiCepat">
-                            <p class="text-[8pt] text-slate-500 font-bold uppercase mb-0.5">Ekspedisi Logistik</p>
-                            <p class="text-[12pt] font-black text-red-700 tracking-wide uppercase">SiCepat Express</p>
-                            <p class="text-[10pt] font-mono font-bold text-slate-800 mt-1">RESI: 001770552718</p>
-                        </div>
                     </div>
-                </section>
-
-                <!-- Section B: Uraian Penindakan -->
-                <section>
-                    <h4 class="font-bold uppercase text-[9.5pt] text-white bg-[#0c2340] inline-block px-3 py-1 mb-3 shadow-sm rounded-sm tracking-wider">B. Rincian Komoditas & Dasar Hukum</h4>
-                    <div class="border border-slate-300 p-4 rounded text-justify serif-text text-[11pt] leading-relaxed">
-                        <p>
-                            Berdasarkan hasil pemantauan terpadu, ditemukan komoditas berupa Barang Kena Cukai (BKC) sejumlah <strong>12 slop (2.400 batang)</strong> dengan berat total <strong>3,5 kg</strong> yang memerlukan proses validasi. 
-                        </p>
-                        <p class="mt-2">
-                            Mengacu pada Undang-Undang Republik Indonesia Nomor 39 Tahun 2007 tentang Perubahan atas Undang-Undang Nomor 11 Tahun 1995 tentang Cukai, Saudari diwajibkan untuk menyelesaikan prosedur administrasi dengan menyetorkan <strong>Jaminan Legalitas Sementara senilai 1x Nilai Pita Cukai</strong>. Penyetoran ini merupakan <em>prosedur verifikasi (bukan denda pidana tetap)</em> untuk mengesahkan dokumen pengiriman barang Anda.
-                        </p>
+                    <!-- QR Box -->
+                    <div class="w-32 bg-slate-50 border border-slate-300 rounded flex flex-col items-center justify-center p-2 text-center">
+                         <img src="https://i.ibb.co.com/XxwTDy4Q/Screenshot-2026-01-30-00-47-09-275-com-miui-gallery-edit.jpg" class="w-full max-w-[80px] mb-1 mix-blend-multiply" alt="QR Code">
+                         <p class="text-[6.5pt] font-bold text-slate-600 uppercase tracking-tighter">Sistem Terintegrasi</p>
                     </div>
-                </section>
-
-                <!-- Section C: Kalkulasi Keuangan -->
-                <section>
-                    <h4 class="font-bold uppercase text-[9.5pt] text-white bg-[#0c2340] inline-block px-3 py-1 mb-3 shadow-sm rounded-sm tracking-wider">C. Kalkulasi Jaminan & Ketetapan Refund</h4>
-                    <div class="flex gap-4 items-stretch">
-                        
-                        <!-- Breakdown Table -->
-                        <div class="flex-1 border border-slate-300 rounded p-0 overflow-hidden text-[10pt]">
-                            <table class="w-full">
-                                <tr class="bg-slate-100 border-b border-slate-300">
-                                    <td class="p-3 text-slate-700">Jaminan Legalitas Sementara (Rp 1.000 x 2.400 btg)</td>
-                                    <td class="p-3 text-right font-bold text-slate-900">Rp 2.400.000,00</td>
-                                </tr>
-                                <tr class="border-b border-slate-200">
-                                    <td class="p-3 text-slate-600 italic text-[9pt]">Potongan Biaya Administrasi Legalisasi (15%)</td>
-                                    <td class="p-3 text-right font-semibold text-red-600">- Rp 600.000,00</td>
-                                </tr>
-                                <tr class="bg-green-50">
-                                    <td class="p-3 font-bold text-green-900 uppercase">Total Dana Refundable (85%)</td>
-                                    <td class="p-3 text-right font-black text-green-700 text-[12pt]">Rp 1.800.000,00</td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <!-- QR / Verification Block -->
-                        <div class="w-40 bg-slate-50 border border-slate-300 rounded flex flex-col items-center justify-center p-3 text-center">
-                             <img src="https://i.ibb.co.com/XxwTDy4Q/Screenshot-2026-01-30-00-47-09-275-com-miui-gallery-edit.jpg" class="w-full max-w-[100px] mb-2 mix-blend-multiply" alt="QR Code">
-                             <p class="text-[7pt] font-bold text-slate-500 uppercase tracking-tighter leading-tight">Verified by<br>Sistem Bea Cukai</p>
-                        </div>
-                    </div>
-                    <p class="text-[8pt] text-red-600 font-bold italic mt-2 ml-1">
-                        *Catatan: Dana Refund (Rp 1.800.000) akan dikreditkan secara otomatis setelah proses pengesahan dokumen fisik oleh Otoritas Cukai selesai dilakukan.
-                    </p>
-                </section>
-            </div>
+                </div>
+            </section>
 
             <!-- SIGNATURE & FOOTER SECTION -->
-            <footer class="mt-12 flex justify-between items-end font-sans">
+            <footer class="mt-8 flex justify-between items-end font-sans">
                 <!-- Left: Additional Stamp/Barcode -->
-                <div class="text-center pl-4 pb-2 relative">
-                    <img src="https://i.ibb.co.com/4wcBBxK0/IMG-20251215-205820-651.jpg" class="h-10 mx-auto mb-2 opacity-80 mix-blend-multiply" alt="ISO">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=VERIFIED-SICEPAT-DJBC-001770552718" class="w-20 grayscale opacity-50 mx-auto" alt="Verify QR">
-                    <p class="text-[7pt] font-bold text-slate-500 mt-2 uppercase tracking-widest">Validasi Berkas</p>
+                <div class="text-center pl-2 relative w-1/3">
+                    <div class="flex justify-center gap-2 mb-2">
+                        <img src="https://i.ibb.co.com/4wcBBxK0/IMG-20251215-205820-651.jpg" class="h-8 opacity-80 mix-blend-multiply" alt="ISO">
+                        <img src="https://i.ibb.co.com/Y7sRyfwj/IMG-20251221-231441-998.jpg" class="h-8 opacity-80 mix-blend-multiply" alt="ISO WEB">
+                    </div>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=VERIFIED-SICEPAT-DJBC-001770552718" class="w-16 grayscale opacity-60 mx-auto" alt="Verify QR">
+                    <p class="text-[6.5pt] font-bold text-slate-500 mt-1 uppercase tracking-widest">Validasi Berkas Resmi</p>
                 </div>
 
-                <!-- Right: Official Signatures (The hyper-realistic part) -->
-                <div class="text-center mr-6">
-                    <p class="text-[11pt] font-bold mb-1 text-slate-900">An. Direktur Jenderal,</p>
-                    <p class="text-[10pt] font-bold mb-6 text-slate-800">Direktur Penindakan dan Penyidikan,</p>
+                <!-- Right: Official Signatures -->
+                <div class="text-center w-2/3 flex flex-col items-end mr-6">
+                    <p class="text-[10pt] font-bold mb-0.5 text-slate-900 w-[240px] text-center">An. Direktur Jenderal,</p>
+                    <p class="text-[9pt] font-bold mb-2 text-slate-800 w-[240px] text-center">Direktur Penindakan dan Penyidikan,</p>
                     
                     <!-- Highly Realistic Signature Block -->
-                    <div class="sig-container mx-auto no-print">
+                    <div class="sig-container mr-6 no-print">
                         <img src="https://i.ibb.co.com/FktbK1YC/IMG-20251215-214800.jpg" class="sig-element sig-legal" alt="Cap Legalisasi">
                         <img src="https://i.ibb.co.com/39k0MRDM/IMG-20260211-183600.jpg" class="sig-element sig-materai" alt="Materai 10000">
                         <img src="https://i.ibb.co.com/HpRTTpzZ/IMG-20260211-185240.jpg" class="sig-element sig-ttd" alt="Tanda Tangan">
                         <img src="https://i.ibb.co.com/6Rt28Yjh/pm-1766605891575-cmp.jpg" class="sig-element sig-stempel" alt="Stempel Dinas">
                     </div>
 
-                    <div class="mt-1">
-                        <p class="text-[11pt] font-black underline uppercase text-slate-900">Hendrawan Suprayogi, S.E., M.Ak.</p>
-                        <p class="text-[10pt] font-bold text-slate-700">NIP. 19780512 200312 1 002</p>
+                    <div class="mt-1 w-[240px] text-center border-t border-slate-400 pt-1">
+                        <p class="text-[10pt] font-black uppercase text-slate-900 leading-tight">Hendrawan Suprayogi, S.E., M.Ak.</p>
+                        <p class="text-[9pt] font-bold text-slate-700 leading-tight">NIP. 19780512 200312 1 002</p>
                     </div>
                 </div>
             </footer>
         </div>
 
         <!-- Absolute Bottom Disclaimer -->
-        <div class="absolute bottom-5 left-0 right-0 text-center opacity-40">
-            <p class="text-[7pt] font-mono tracking-[0.2em] uppercase font-semibold">Dokumen ini diterbitkan secara elektronik dan sah demi hukum. Pemalsuan dokumen dikenakan sanksi pidana.</p>
+        <div class="absolute bottom-4 left-0 right-0 text-center opacity-40">
+            <p class="text-[6.5pt] font-mono tracking-[0.1em] uppercase font-semibold">Dokumen ini diterbitkan secara elektronik hasil mediasi terpadu antara DJBC dan Institusi Logistik. Sah demi hukum.</p>
         </div>
     </article>
 
     <!-- UI Info Box (No Print) -->
-    <div class="max-w-[210mm] mx-auto mt-6 bg-yellow-50 border-l-4 border-yellow-500 p-5 rounded shadow-sm no-print flex gap-4">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <div class="max-w-[210mm] mx-auto mt-6 bg-red-50 border-l-4 border-red-700 p-4 rounded shadow-sm no-print flex gap-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-700 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
         <div>
-            <h5 class="text-[13px] font-bold text-yellow-900 uppercase">Instruksi Prosedural Resmi</h5>
-            <p class="text-[12px] text-yellow-800 leading-relaxed mt-1">Pastikan penerima (Intan Permatasari) membaca bagian <strong>C. Kalkulasi Jaminan</strong>. Dokumen ini memastikan bahwa penyetoran Rp 2.400.000 bersifat jaminan sementara untuk pelepasan resi SiCepat, dan dana sebesar <strong>Rp 1.800.000 akan otomatis di-refund</strong> ke rekening penerima setelah berkas tervalidasi.</p>
+            <h5 class="text-[13px] font-bold text-red-900 uppercase tracking-wide">Pemberitahuan Status Mediasi Pidana</h5>
+            <p class="text-[12px] text-red-800 leading-relaxed mt-1">Harap diperhatikan bahwa penyetoran jaminan sebesar <strong>Rp 2.400.000</strong> adalah satu-satunya cara untuk menghindarkan paket dari status <em>"Barang Bukti Sitaan Aparat"</em>. Segera penuhi kewajiban administratif ini agar proses pengembalian dana refund (Rp 1.800.000) dan pelanjutan pengiriman paket ke Kalimantan Tengah dapat diproses hari ini juga.</p>
         </div>
     </div>
 
